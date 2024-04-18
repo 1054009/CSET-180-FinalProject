@@ -21,8 +21,6 @@ def run_query(query, parameters = None):
 # Routes
 @app.route("/")
 def test():
-	print(run_query("create table if not exists `test` ( `awesome` int )"))
-
 	return render_template("base.html")
 
 # Brap you
