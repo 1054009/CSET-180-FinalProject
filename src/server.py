@@ -1,7 +1,7 @@
 # Imports
 import platform
 from flask import Flask, render_template
-from sqlalchemy import create_engine, engine_from_config, text
+from sqlalchemy import create_engine, text
 
 # FreeDB information
 FREEDB_USERNAME = "freedb_1054009"
