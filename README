@@ -1,5 +1,5 @@
-Website hosted on Render using Flask
-Database hosted on FreeDB using MySQL
+Website hosted on Render (``https://render.com/``) using Flask
+Database hosted on FreeDB (``https://freedb.tech/``) using MySQL
 
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⠶⠶⣄
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣸⠁⠀⠀⠸⣆
