@@ -15,9 +15,14 @@ app = Flask(__name__)
 engine = create_engine(f"mysql://{FREEDB_USERNAME}:{FREEDB_PASSWORD}@{FREEDB_HOST}:{FREEDB_PORT}/{FREEDB_DB}")
 sql = engine.connect()
 
+def run_query(query, parameters = None):
+	return sql.execute(text(query), parameters)
+
 # Routes
 @app.route("/")
 def test():
+	print(run_query("create table if not exists `test` ( `awesome` int )"))
+
 	return render_template("base.html")
 
 # Brap you
