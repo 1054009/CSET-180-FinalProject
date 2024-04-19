@@ -5,16 +5,26 @@ import os
 from flask import Flask, render_template
 from sqlalchemy import create_engine, text
 
-# FreeDB information
-FREEDB_USERNAME = os.environ.get("FREEDB_USERNAME")
-FREEDB_PASSWORD = os.environ.get("FREEDB_PASSWORD")
-FREEDB_HOST = os.environ.get("FREEDB_HOST")
-FREEDB_PORT = 3306
-FREEDB_DB = os.environ.get("FREEDB_DB")
+IS_DEBUG = platform.system() == "Windows"
 
-# Setup Flask and connect to the database
+# Initialize Flask
 app = Flask(__name__)
-engine = create_engine(f"mysql://{FREEDB_USERNAME}:{FREEDB_PASSWORD}@{FREEDB_HOST}:{FREEDB_PORT}/{FREEDB_DB}")
+
+DB_USERNAME = "root"
+DB_PASSWORD = "1234"
+DB_HOST = "localhost"
+DB_PORT = "3306"
+DB_DB = "cset180final"
+
+if not IS_DEBUG:
+	DB_USERNAME = os.environ.get("FREEDB_USERNAME")
+	DB_PASSWORD = os.environ.get("FREEDB_PASSWORD")
+	DB_HOST = os.environ.get("FREEDB_HOST")
+	DB_PORT = 3306
+	DB_DB = os.environ.get("FREEDB_DB")
+
+# Connect to database
+engine = create_engine(f"mysql://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_DB}")
 sql = engine.connect()
 
 def run_query(query, parameters = None):
@@ -26,5 +36,5 @@ def test():
 	return render_template("base.html")
 
 # Brap you
-if platform.system() == "Windows" and __name__ == "__main__":
+if IS_DEBUG and __name__ == "__main__":
  	app.run()
