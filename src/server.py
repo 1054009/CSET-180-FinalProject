@@ -10,6 +10,7 @@ IS_DEBUG = platform.system() == "Windows"
 # Initialize Flask
 app = Flask(__name__)
 
+# Connect to database
 DB_USERNAME = "root"
 DB_PASSWORD = "1234"
 DB_HOST = "localhost"
@@ -23,10 +24,10 @@ if not IS_DEBUG:
 	DB_PORT = 3306
 	DB_DB = os.environ.get("FREEDB_DB")
 
-# Connect to database
 engine = create_engine(f"mysql://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_DB}")
 sql = engine.connect()
 
+# Useful functions
 def run_query(query, parameters = None):
 	return sql.execute(text(query), parameters)
 
