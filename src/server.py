@@ -1,11 +1,13 @@
 # Imports
-import platform
+from pathlib import Path
 import os
+import platform
 
 from flask import Flask, render_template
 from sqlalchemy import create_engine, text
 
 IS_DEBUG = platform.system() == "Windows"
+EXECUTING_DIRECTORY = Path(__file__).parent.resolve()
 
 # Initialize Flask
 app = Flask(__name__)
@@ -27,14 +29,21 @@ if not IS_DEBUG:
 engine = create_engine(f"mysql://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_DB}")
 sql = engine.connect()
 
-# Useful functions
-def run_query(query, parameters = None):
-	return sql.execute(text(query), parameters)
+# The rest
+def load_file(path):
+	path = (EXECUTING_DIRECTORY / path).resolve()
 
-# Routes
-@app.route("/")
-def test():
-	return render_template("base.html")
+	try:
+		file = open(path)
+
+		exec(file.read())
+
+		file.close()
+	except:
+		pass
+
+load_file("./scripts/util.py")
+load_file("./scripts/routes.py")
 
 # Brap you
 if IS_DEBUG and __name__ == "__main__":
