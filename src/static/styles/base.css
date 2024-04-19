@@ -35,6 +35,22 @@ p
 *	Classes
 */
 
+.float_right
+{
+	float: right;
+
+	margin-left: auto;
+}
+
+.clearfix::after
+{
+	content: "";
+
+	clear: both;
+
+	display: table;
+}
+
 /*
 *	IDs
 */
