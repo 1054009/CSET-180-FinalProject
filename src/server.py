@@ -1,14 +1,16 @@
 # Imports
 import platform
+import os
+
 from flask import Flask, render_template
 from sqlalchemy import create_engine, text
 
 # FreeDB information
-FREEDB_USERNAME = "freedb_1054009"
-FREEDB_PASSWORD = "$hchYjtYar$BAh2" # pls don't hack kthx
-FREEDB_HOST = "sql.freedb.tech"
+FREEDB_USERNAME = os.environ.get("FREEDB_USERNAME")
+FREEDB_PASSWORD = os.environ.get("FREEDB_PASSWORD")
+FREEDB_HOST = os.environ.get("FREEDB_HOST")
 FREEDB_PORT = 3306
-FREEDB_DB = "freedb_cset180final"
+FREEDB_DB = os.environ.get("FREEDB_DB")
 
 # Setup Flask and connect to the database
 app = Flask(__name__)
