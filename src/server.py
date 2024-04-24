@@ -6,6 +6,7 @@ import secrets
 
 import flask
 import flask_sqlalchemy
+import sqlalchemy
 
 # Constants
 IS_DEBUG = platform.system() == "Windows"
