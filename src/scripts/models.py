@@ -1,6 +1,6 @@
 from typing import List
 
-import sqlalchemy.dialects.mysql
+from sqlalchemy.dialects.mysql import INTEGER, VARCHAR
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 
@@ -53,7 +53,7 @@ class Fruit(Base):
 		primary_key = True
 	)
 
-	user_id:Mapped(int) = mapped_column(
+	user_id:Mapped[int] = mapped_column(
 		ForeignKey("users.id"),
 
 		nullable = False
