@@ -62,7 +62,7 @@ def include(file_path):
 
 	EXECUTING_DIRECTORY = executing_directory_backup
 
-include("./scripts/imports.py")
+include("./scripts/scripts.py")
 
 # Run like normal if we're in debug
 # gunicorn will be running it from the server end
