@@ -57,7 +57,7 @@ def include(file_path):
 
 	try:
 		exec(open(file_path).read(), globals())
-	except error:
+	except Exception as error:
 		print(error)
 
 	EXECUTING_DIRECTORY = executing_directory_backup
