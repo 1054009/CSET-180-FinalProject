@@ -53,6 +53,7 @@ def include(file_path):
 	executing_directory_backup = EXECUTING_DIRECTORY
 
 	file_path = (EXECUTING_DIRECTORY / file_path).resolve()
+	EXECUTING_DIRECTORY = pathlib.Path(file_path).parent.resolve()
 
 	try:
 		exec(open(file_path).read(), globals())
