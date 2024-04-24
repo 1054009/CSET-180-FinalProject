@@ -43,10 +43,10 @@ config = app.config
 
 config["DEBUG"] = True
 config["SECRET_KEY"] = secrets.token_hex()
-config["SQLALCHEMY_DATABASE_URI"] = f"mysql://{SQL_USERNAME}:{SQL_PASSWORD}@{SQL_HOST}:{SQL_PORT}/{SQL_DATABASE}"
 
 # Connect to database
-sql = flask_sqlalchemy.SQLAlchemy(app)
+engine = sqlalchemy.create_engine(f"mysql://{SQL_USERNAME}:{SQL_PASSWORD}@{SQL_HOST}:{SQL_PORT}/{SQL_DATABASE}")
+sql = engine.connect()
 
 # Include other files
 def include(file_path):
