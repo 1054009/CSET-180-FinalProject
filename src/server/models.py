@@ -141,10 +141,10 @@ class Product(Base):
 class ProductImage(Base):
 	__tablename__ = "product_images"
 
-	entry_id:Mapped[int] = mapped_column(
+	ignoreme_entry_id:Mapped[int] = mapped_column(
 		INTEGER(unsigned = True),
 
-		primary_key = True # This is only here because SQLAlchemy requires that tables have a primary key
+		primary_key = True
 	)
 
 	product_id:Mapped[int] = mapped_column(
@@ -206,10 +206,10 @@ class AvailableWarranty(Base):
 class ActiveWarranty(Base):
 	__tablename__ = "active_warranty"
 
-	entry_id:Mapped[int] = mapped_column(
+	ignoreme_entry_id:Mapped[int] = mapped_column(
 		INTEGER(unsigned = True),
 
-		primary_key = True # This is only here because SQLAlchemy requires that tables have a primary key
+		primary_key = True
 	)
 
 	warranty_id:Mapped[int] = mapped_column(
@@ -246,10 +246,10 @@ class Cart(Base):
 class CartItem(Base):
 	__tablename__ = "cart_items"
 
-	entry_id:Mapped[int] = mapped_column(
+	ignoreme_entry_id:Mapped[int] = mapped_column(
 		INTEGER(unsigned = True),
 
-		primary_key = True # This is only here because SQLAlchemy requires that tables have a primary key
+		primary_key = True
 	)
 
 	cart_id:Mapped[int] = mapped_column(
