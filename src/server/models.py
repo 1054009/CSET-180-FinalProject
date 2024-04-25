@@ -253,7 +253,9 @@ class ActiveWarranty(Base):
 	)
 
 	expiration_time:Mapped[str] = mapped_column(
-		TIMESTAMP
+		TIMESTAMP,
+
+		nullable = True
 	)
 
 # class Fruit(Base):
