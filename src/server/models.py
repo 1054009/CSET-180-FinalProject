@@ -166,6 +166,37 @@ class ProductImage(Base):
 		nullable = False
 	)
 
+class ProductDiscount(Base):
+	__tablename__ = "product_discounts"
+
+	id:Mapped[int] = mapped_column(
+		INTEGER(unsigned = True),
+
+		primary_key = True
+	)
+
+	product_id:Mapped[int] = mapped_column(
+		ForeignKey("products.id"),
+
+		nullable = False
+	)
+
+	percentage:Mapped[float] = mapped_column(
+		DECIMAL(5, 2, unsigned = True),
+
+		nullable = False
+	)
+
+	start_time:Mapped[str] = mapped_column(
+		TIMESTAMP,
+
+		nullable = False
+	)
+
+	end_times:Mapped[str] = mapped_column(
+		TIMESTAMP
+	)
+
 class ProductWarranty(Base):
 	__tablename__ = "product_warranty"
 
