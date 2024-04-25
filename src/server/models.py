@@ -1,6 +1,6 @@
 from typing import List
 
-from sqlalchemy.dialects.mysql import INTEGER, VARCHAR, BLOB, ENUM
+from sqlalchemy.dialects.mysql import INTEGER, VARCHAR, BLOB
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 
@@ -14,12 +14,6 @@ class User(Base):
 		INTEGER(unsigned = True),
 
 		primary_key = True
-	)
-
-	user_type:Mapped[str] = mapped_column(
-		ENUM("customer", "vendor", "admin"),
-
-		nullable = False
 	)
 
 	username:Mapped[str] = mapped_column(
