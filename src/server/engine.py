@@ -23,5 +23,12 @@ if True:
 		SQL_PORT = "3306"
 		SQL_DATABASE = environ.get("FREEDB_DB")
 
-engine = create_engine(f"mysql://{SQL_USERNAME}:{SQL_PASSWORD}@{SQL_HOST}:{SQL_PORT}/{SQL_DATABASE}")
+engine = create_engine(
+	f"mysql://{SQL_USERNAME}:{SQL_PASSWORD}@{SQL_HOST}:{SQL_PORT}/{SQL_DATABASE}",
+
+	connect_args = {
+		"auth_plugin": "mysql_native_password"
+	}
+)
+
 sql = engine.connect()
