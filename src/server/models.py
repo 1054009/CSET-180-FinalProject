@@ -198,8 +198,8 @@ class ProductDiscount(Base):
 		TIMESTAMP
 	)
 
-class ProductWarranty(Base):
-	__tablename__ = "product_warranty"
+class AvailableWarranty(Base):
+	__tablename__ = "available_warranty"
 
 	id:Mapped[int] = mapped_column(
 		INTEGER(unsigned = True),
@@ -235,7 +235,7 @@ class ActiveWarranty(Base):
 	)
 
 	warranty_id:Mapped[int] = mapped_column(
-		ForeignKey("product_warranty.id"),
+		ForeignKey("available_warranty.id"),
 
 		nullable = False
 	)
