@@ -243,6 +243,13 @@ class Cart(Base):
 		ForeignKey("users.id")
 	)
 
+	# Relationships
+
+	items = relationship(
+		"CartItem",
+		backref = "Cart"
+	)
+
 class CartItem(Base):
 	__tablename__ = "cart_items"
 
