@@ -63,6 +63,72 @@ class User(Base):
 	def __repr__(self) -> str:
 		return f"<User {self.email_address}>"
 
+class Customer(Base):
+	__tablename__ = "customers"
+
+	id:Mapped[int] = mapped_column(
+		INTEGER(unsigned = True),
+
+		primary_key = True
+	)
+
+	user_id:Mapped[int] = mapped_column(
+		ForeignKey("users.id"),
+
+		nullable = False
+	)
+
+class Vendor(Base):
+	__tablename__ = "vendors"
+
+	id:Mapped[int] = mapped_column(
+		INTEGER(unsigned = True),
+
+		primary_key = True
+	)
+
+	user_id:Mapped[int] = mapped_column(
+		ForeignKey("users.id"),
+
+		nullable = False
+	)
+
+class Admin(Base):
+	__tablename__ = "admins"
+
+	id:Mapped[int] = mapped_column(
+		INTEGER(unsigned = True),
+
+		primary_key = True
+	)
+
+	user_id:Mapped[int] = mapped_column(
+		ForeignKey("users.id"),
+
+		nullable = False
+	)
+
+class Product(Base):
+	__tablename__ = "products"
+
+	id:Mapped[int] = mapped_column(
+		INTEGER(unsigned = True),
+
+		primary_key = True
+	)
+
+	name:Mapped[str] = mapped_column(
+		VARCHAR(128),
+
+		nullable = False
+	)
+
+	description:Mapped[str] = mapped_column(
+		VARCHAR(255)
+	)
+
+
+
 # class Fruit(Base):
 # 	__tablename__ = "fruits"
 
