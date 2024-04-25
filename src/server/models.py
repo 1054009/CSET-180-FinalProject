@@ -1,6 +1,6 @@
 from typing import List
 
-from sqlalchemy.dialects.mysql import INTEGER, VARCHAR, BLOB
+from sqlalchemy.dialects.mysql import INTEGER, VARCHAR, BLOB, DECIMAL
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 
@@ -111,6 +111,12 @@ class Product(Base):
 		primary_key = True
 	)
 
+	master_product_id:Mapped[int] = mapped_column(
+		ForeignKey("products.id"),
+
+		nullable = False
+	)
+
 	name:Mapped[str] = mapped_column(
 		VARCHAR(128),
 
@@ -119,6 +125,24 @@ class Product(Base):
 
 	description:Mapped[str] = mapped_column(
 		VARCHAR(255)
+	)
+
+	vendor_id:Mapped[int] = mapped_column(
+		ForeignKey("vendors.id"),
+
+		nullable = False
+	)
+
+	inventory:Mapped[int] = mapped_column(
+		INTEGER(unsigned = True),
+
+		nullable = False
+	)
+
+	price:Mapped[float] = mapped_column(
+		DECIMAL(8, 2, unsigned = True),
+
+		nullable = False
 	)
 
 
