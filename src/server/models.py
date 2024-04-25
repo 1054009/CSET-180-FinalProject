@@ -1,4 +1,4 @@
-from sqlalchemy.dialects.mysql import INTEGER, VARCHAR, BLOB, LONGBLOB, DECIMAL, TEXT, TIMESTAMP
+from sqlalchemy.dialects.mysql import INTEGER, VARCHAR, BLOB, LONGBLOB, DECIMAL, TEXT, TIMESTAMP, ENUM
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 
@@ -269,4 +269,29 @@ class CartItem(Base):
 
 	quantity:Mapped[int] = mapped_column(
 		INTEGER(unsigned = True)
+	)
+
+class Order(Base):
+	__tablename__ = "orders"
+
+	id:Mapped[int] = mapped_column(
+		INTEGER(unsigned = True),
+
+		primary_key = True
+	)
+
+	cart_id:Mapped[int] = mapped_column(
+		ForeignKey("carts.id")
+	)
+
+	timestamp:Mapped[str] = mapped_column(
+		TIMESTAMP
+	)
+
+	price:Mapped[float] = mapped_column(
+		DECIMAL(16, 2, unsigned = True)
+	)
+
+	status:Mapped[string] = mapped_column(
+		ENUM("pending", "confirmed", "canceled", "shipped", "delivered")
 	)
