@@ -214,11 +214,15 @@ class ProductWarranty(Base):
 	)
 
 	coverage_days:Mapped[int] = mapped_column(
-		INTEGER(unsigned = True)
+		INTEGER(unsigned = True),
+
+		nullable = True
 	)
 
 	coverage_information:Mapped[str] = mapped_column(
-		TEXT
+		TEXT,
+
+		nullable = True
 	)
 
 class ActiveWarranty(Base):
