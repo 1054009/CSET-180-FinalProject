@@ -17,33 +17,25 @@ class User(Base):
 	username:Mapped[str] = mapped_column(
 		VARCHAR(32),
 
-		nullable = False,
 		unique = True
 	)
 
 	first_name:Mapped[str] = mapped_column(
-		VARCHAR(32),
-
-		nullable = False
+		VARCHAR(32)
 	)
 
 	last_name:Mapped[str] = mapped_column(
-		VARCHAR(32),
-
-		nullable = False
+		VARCHAR(32)
 	)
 
 	email_address:Mapped[str] = mapped_column(
 		VARCHAR(64),
 
-		nullable = False,
 		unique = True
 	)
 
 	password:Mapped[str] = mapped_column(
-		BLOB,
-
-		nullable = False
+		BLOB
 	)
 
 	# Relationships
@@ -68,9 +60,7 @@ class Customer(Base):
 	)
 
 	user_id:Mapped[int] = mapped_column(
-		ForeignKey("users.id"),
-
-		nullable = False
+		ForeignKey("users.id")
 	)
 
 class Vendor(Base):
@@ -83,9 +73,7 @@ class Vendor(Base):
 	)
 
 	user_id:Mapped[int] = mapped_column(
-		ForeignKey("users.id"),
-
-		nullable = False
+		ForeignKey("users.id")
 	)
 
 class Admin(Base):
@@ -98,9 +86,7 @@ class Admin(Base):
 	)
 
 	user_id:Mapped[int] = mapped_column(
-		ForeignKey("users.id"),
-
-		nullable = False
+		ForeignKey("users.id")
 	)
 
 class Product(Base):
@@ -119,9 +105,7 @@ class Product(Base):
 	)
 
 	name:Mapped[str] = mapped_column(
-		VARCHAR(128),
-
-		nullable = False
+		VARCHAR(128)
 	)
 
 	description:Mapped[str] = mapped_column(
@@ -131,21 +115,15 @@ class Product(Base):
 	)
 
 	vendor_id:Mapped[int] = mapped_column(
-		ForeignKey("vendors.id"),
-
-		nullable = False
+		ForeignKey("vendors.id")
 	)
 
 	inventory:Mapped[int] = mapped_column(
-		INTEGER(unsigned = True),
-
-		nullable = False
+		INTEGER(unsigned = True)
 	)
 
 	price:Mapped[float] = mapped_column(
-		DECIMAL(8, 2, unsigned = True),
-
-		nullable = False
+		DECIMAL(8, 2, unsigned = True)
 	)
 
 	# Relationships
@@ -170,15 +148,11 @@ class ProductImage(Base):
 	)
 
 	product_id:Mapped[int] = mapped_column(
-		ForeignKey("products.id"),
-
-		nullable = False
+		ForeignKey("products.id")
 	)
 
 	image_data:Mapped[str] = mapped_column(
-		LONGBLOB,
-
-		nullable = False
+		LONGBLOB
 	)
 
 class ProductDiscount(Base):
@@ -191,21 +165,15 @@ class ProductDiscount(Base):
 	)
 
 	product_id:Mapped[int] = mapped_column(
-		ForeignKey("products.id"),
-
-		nullable = False
+		ForeignKey("products.id")
 	)
 
 	percentage:Mapped[float] = mapped_column(
-		DECIMAL(5, 2, unsigned = True),
-
-		nullable = False
+		DECIMAL(5, 2, unsigned = True)
 	)
 
 	start_time:Mapped[str] = mapped_column(
-		TIMESTAMP,
-
-		nullable = False
+		TIMESTAMP
 	)
 
 	end_times:Mapped[str] = mapped_column(
@@ -222,9 +190,7 @@ class AvailableWarranty(Base):
 	)
 
 	product_id:Mapped[int] = mapped_column(
-		ForeignKey("products.id"),
-
-		nullable = False
+		ForeignKey("products.id")
 	)
 
 	coverage_days:Mapped[int] = mapped_column(
@@ -234,9 +200,7 @@ class AvailableWarranty(Base):
 	)
 
 	coverage_information:Mapped[str] = mapped_column(
-		TEXT,
-
-		nullable = True
+		TEXT
 	)
 
 class ActiveWarranty(Base):
@@ -249,21 +213,15 @@ class ActiveWarranty(Base):
 	)
 
 	warranty_id:Mapped[int] = mapped_column(
-		ForeignKey("available_warranty.id"),
-
-		nullable = False
+		ForeignKey("available_warranty.id")
 	)
 
 	user_id:Mapped[int] = mapped_column(
-		ForeignKey("users.id"),
-
-		nullable = False
+		ForeignKey("users.id")
 	)
 
 	activation_time:Mapped[str] = mapped_column(
-		TIMESTAMP,
-
-		nullable = False
+		TIMESTAMP
 	)
 
 	expiration_time:Mapped[str] = mapped_column(
