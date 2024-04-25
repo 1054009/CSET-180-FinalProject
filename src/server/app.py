@@ -8,8 +8,8 @@ EXECUTING_DIRECTORY = Path(__file__).parent.resolve()
 app = Flask(
 	__name__,
 
-	static_folder = (EXECUTING_DIRECTORY / "../client/static"),
-	template_folder = (EXECUTING_DIRECTORY / "../client/templates")
+	static_folder = (EXECUTING_DIRECTORY / "../client/static").resolve(),
+	template_folder = (EXECUTING_DIRECTORY / "../client/templates").resolve()
 )
 
 app.secret_key = token_hex()
