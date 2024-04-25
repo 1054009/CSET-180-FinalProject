@@ -1,6 +1,6 @@
 from typing import List
 
-from sqlalchemy.dialects.mysql import INTEGER, VARCHAR, BLOB, DECIMAL
+from sqlalchemy.dialects.mysql import INTEGER, VARCHAR, BLOB, DECIMAL, TEXT
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 
@@ -145,7 +145,28 @@ class Product(Base):
 		nullable = False
 	)
 
+class ProductWarranty(Base):
+	__tablename__ = "product_warranty"
 
+	id:Mapped[int] = mapped_column(
+		INTEGER(unsigned = True),
+
+		primary_key = True
+	)
+
+	product_id:Mapped[int] = mapped_column(
+		ForeignKey("products.id"),
+
+		nullable = False
+	)
+
+	coverage_days:Mapped[int] = mapped_column(
+		INTEGER(unsigned = True)
+	)
+
+	coverage_information:Mapped[str] = mapped_column(
+		TEXT
+	)
 
 # class Fruit(Base):
 # 	__tablename__ = "fruits"
