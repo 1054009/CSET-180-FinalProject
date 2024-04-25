@@ -1,5 +1,3 @@
-from typing import List
-
 from sqlalchemy.dialects.mysql import INTEGER, VARCHAR, BLOB, LONGBLOB, DECIMAL, TEXT, TIMESTAMP
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
@@ -49,9 +47,10 @@ class User(Base):
 	)
 
 	# # Relationships
-	# fruits:Mapped[List["Fruit"]] = relationship(
-	# 	back_populates = "users"
-	# )
+	warranties = relationship(
+		"ActiveWarranty",
+		backref = "User"
+	)
 
 	# Overrides
 	def __repr__(self) -> str:
