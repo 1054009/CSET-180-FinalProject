@@ -292,6 +292,6 @@ class Order(Base):
 		DECIMAL(16, 2, unsigned = True)
 	)
 
-	status:Mapped[string] = mapped_column(
+	status:Mapped[str] = mapped_column(
 		ENUM("pending", "confirmed", "canceled", "shipped", "delivered")
 	)
