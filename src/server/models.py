@@ -1,6 +1,6 @@
 from typing import List
 
-from sqlalchemy.dialects.mysql import INTEGER, VARCHAR
+from sqlalchemy.dialects.mysql import INTEGER, VARCHAR, BLOB
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 
@@ -14,6 +14,13 @@ class User(Base):
 		INTEGER(unsigned = True),
 
 		primary_key = True
+	)
+
+	username:Mapped[str] = mapped_column(
+		VARCHAR(32),
+
+		nullable = False,
+		unique = True
 	)
 
 	first_name:Mapped[str] = mapped_column(
@@ -35,41 +42,47 @@ class User(Base):
 		unique = True
 	)
 
-	# Relationships
-	fruits:Mapped[List["Fruit"]] = relationship(
-		back_populates = "users"
+	password:Mapped[str] = mapped_column(
+		BLOB,
+
+		nullable = False
 	)
+
+	# # Relationships
+	# fruits:Mapped[List["Fruit"]] = relationship(
+	# 	back_populates = "users"
+	# )
 
 	# Overrides
 	def __repr__(self) -> str:
 		return f"<User {self.email_address}>"
 
-class Fruit(Base):
-	__tablename__ = "fruits"
+# class Fruit(Base):
+# 	__tablename__ = "fruits"
 
-	id:Mapped[int] = mapped_column(
-		INTEGER(unsigned = True),
+# 	id:Mapped[int] = mapped_column(
+# 		INTEGER(unsigned = True),
 
-		primary_key = True
-	)
+# 		primary_key = True
+# 	)
 
-	user_id:Mapped[int] = mapped_column(
-		ForeignKey("users.id"),
+# 	user_id:Mapped[int] = mapped_column(
+# 		ForeignKey("users.id"),
 
-		nullable = False
-	)
+# 		nullable = False
+# 	)
 
-	name:Mapped[str] = mapped_column(
-		VARCHAR(32),
+# 	name:Mapped[str] = mapped_column(
+# 		VARCHAR(32),
 
-		nullable = False
-	)
+# 		nullable = False
+# 	)
 
-	# Relationships
-	users:Mapped[List["User"]] = relationship(
-		back_populates = "fruits"
-	)
+# 	# Relationships
+# 	users:Mapped[List["User"]] = relationship(
+# 		back_populates = "fruits"
+# 	)
 
-	# Overrides
-	def __repr__(self) -> str:
-		return f"<Fruit {self.name}>"
+# 	# Overrides
+# 	def __repr__(self) -> str:
+# 		return f"<Fruit {self.name}>"
