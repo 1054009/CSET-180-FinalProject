@@ -1,6 +1,6 @@
 from typing import List
 
-from sqlalchemy.dialects.mysql import INTEGER, VARCHAR, BLOB, DECIMAL, TEXT
+from sqlalchemy.dialects.mysql import INTEGER, VARCHAR, BLOB, DECIMAL, TEXT, TIMESTAMP
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 
@@ -166,6 +166,37 @@ class ProductWarranty(Base):
 
 	coverage_information:Mapped[str] = mapped_column(
 		TEXT
+	)
+
+class ActiveWarranty(Base):
+	__tablename__ = "active_warranty"
+
+	entry_id:Mapped[int] = mapped_column(
+		INTEGER(unsigned = True),
+
+		primary_key = True # This is only here because SQLAlchemy requires that tables have a primary key
+	)
+
+	warranty_id:Mapped[int] = mapped_column(
+		ForeignKey("product_warranty.id"),
+
+		nullable = False
+	)
+
+	user_id:Mapped[int] = mapped_column(
+		ForeignKey("users.id"),
+
+		nullable = False
+	)
+
+	activation_time:Mapped[str] = mapped_column(
+		TIMESTAMP,
+
+		nullable = False
+	)
+
+	expiration_time:Mapped[str] = mapped_column(
+		TIMESTAMP
 	)
 
 # class Fruit(Base):
