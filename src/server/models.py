@@ -242,3 +242,24 @@ class Cart(Base):
 	user_id:Mapped[int] = mapped_column(
 		ForeignKey("users.id")
 	)
+
+class CartItem(Base):
+	__tablename__ = "cart_items"
+
+	entry_id:Mapped[int] = mapped_column(
+		INTEGER(unsigned = True),
+
+		primary_key = True # This is only here because SQLAlchemy requires that tables have a primary key
+	)
+
+	cart_id:Mapped[int] = mapped_column(
+		ForeignKey("carts.id")
+	)
+
+	product_id:Mapped[int] = mapped_column(
+		ForeignKey("products.id")
+	)
+
+	quantity:Mapped[int] = mapped_column(
+		INTEGER(unsigned = True)
+	)
