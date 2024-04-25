@@ -111,9 +111,7 @@ class Product(Base):
 	)
 
 	master_product_id:Mapped[int] = mapped_column(
-		ForeignKey("products.id"),
-
-		nullable = False
+		ForeignKey("products.id")
 	)
 
 	name:Mapped[str] = mapped_column(
