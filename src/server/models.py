@@ -1,6 +1,6 @@
 from typing import List
 
-from sqlalchemy.dialects.mysql import INTEGER, VARCHAR, BLOB, DECIMAL, TEXT, TIMESTAMP
+from sqlalchemy.dialects.mysql import INTEGER, VARCHAR, BLOB, LONGBLOB, DECIMAL, TEXT, TIMESTAMP
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 
@@ -141,6 +141,27 @@ class Product(Base):
 
 	price:Mapped[float] = mapped_column(
 		DECIMAL(8, 2, unsigned = True),
+
+		nullable = False
+	)
+
+class ProductImage(Base):
+	__tablename__ = "product_images"
+
+	entry_id:Mapped[int] = mapped_column(
+		INTEGER(unsigned = True),
+
+		primary_key = True # This is only here because SQLAlchemy requires that tables have a primary key
+	)
+
+	product_id:Mapped[int] = mapped_column(
+		ForeignKey("products.id"),
+
+		nullable = False
+	)
+
+	image_data:Mapped[str] = mapped_column(
+		LONGBLOB,
 
 		nullable = False
 	)
