@@ -46,7 +46,7 @@ class User(Base):
 		nullable = False
 	)
 
-	# # Relationships
+	# Relationships
 	warranties = relationship(
 		"ActiveWarranty",
 		backref = "User"
@@ -257,33 +257,3 @@ class ActiveWarranty(Base):
 
 		nullable = True
 	)
-
-# class Fruit(Base):
-# 	__tablename__ = "fruits"
-
-# 	id:Mapped[int] = mapped_column(
-# 		INTEGER(unsigned = True),
-
-# 		primary_key = True
-# 	)
-
-# 	user_id:Mapped[int] = mapped_column(
-# 		ForeignKey("users.id"),
-
-# 		nullable = False
-# 	)
-
-# 	name:Mapped[str] = mapped_column(
-# 		VARCHAR(32),
-
-# 		nullable = False
-# 	)
-
-# 	# Relationships
-# 	users:Mapped[List["User"]] = relationship(
-# 		back_populates = "fruits"
-# 	)
-
-# 	# Overrides
-# 	def __repr__(self) -> str:
-# 		return f"<Fruit {self.name}>"
