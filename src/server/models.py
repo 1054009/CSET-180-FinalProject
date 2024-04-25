@@ -52,6 +52,8 @@ class User(Base):
 		backref = "User"
 	)
 
+	# TODO: Carts
+
 	# Overrides
 	def __repr__(self) -> str:
 		return f"<User {self.email_address}>"
@@ -144,6 +146,18 @@ class Product(Base):
 		DECIMAL(8, 2, unsigned = True),
 
 		nullable = False
+	)
+
+	# Relationships
+
+	images = relationship(
+		"ProductImage",
+		backref = "Product"
+	)
+
+	discounts = relationship(
+		"ProductDiscount",
+		backref = "Product"
 	)
 
 class ProductImage(Base):
