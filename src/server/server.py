@@ -7,6 +7,7 @@ from models import Base
 from session import session
 
 # Setup database
+Base.metadata.drop_all(bind = engine)
 Base.metadata.create_all(bind = engine)
 
 if system() == "Windows" and __name__ == "__main__":
