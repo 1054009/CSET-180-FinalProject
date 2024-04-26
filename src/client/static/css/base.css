@@ -2,10 +2,11 @@
 {
 	--flex-gap: 1em;
 
-	--palette1: rgb(45, 50, 80);
-	--palette2: rgb(66, 71, 105);
-	--palette3: rgb(112, 119, 161);
-	--palette-highlight: rgb(246, 177, 122);
+	--palette1: rgb(34, 37, 43);
+	--palette2: rgb(41, 44, 52);
+	--palette3: rgb(65, 67, 73);
+	--palette4: rgb(173, 178, 179);
+	--palette-highlight: rgb(200, 154, 102);
 
 	--header-height: 5em;
 	--footer-height: 5em;
@@ -16,6 +17,8 @@
 	font-family: sans-serif;
 
 	box-sizing: border-box;
+
+	color: var(--palette4);
 }
 
 html, body
@@ -25,6 +28,8 @@ html, body
 
 	margin: 0;
 	padding: 0;
+
+	background-color: var(--palette2);
 }
 
 .flexbox
@@ -65,7 +70,9 @@ header
 	width: 100%;
 	height: var(--header-height);
 
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid var(--palette3);
+
+	background-color: var(--palette1);
 }
 
 #body_block
@@ -85,5 +92,7 @@ footer
 	width: 100%;
 	height: var(--footer-height);
 
-	border-top: 1px solid black;
+	border-top: 1px solid var(--palette3);
+
+	background-color: var(--palette1);
 }
