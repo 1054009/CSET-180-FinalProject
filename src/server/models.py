@@ -350,3 +350,30 @@ class ComplaintImage(Base):
 	image_data:Mapped[str] = mapped_column(
 		LONGBLOB
 	)
+
+class Review(Base):
+	__tablename__ = "reviews"
+
+	id:Mapped[int] = mapped_column(
+		INTEGER(unsigned = True),
+
+		primary_key = True
+	)
+
+	user_id:Mapped[int] = mapped_column(
+		ForeignKey("users.id")
+	)
+
+	timestamp:Mapped[str] = mapped_column(
+		TIMESTAMP
+	)
+
+	rating:Mapped(int) = mapped_column(
+		ENUM(1, 2, 3, 4, 5)
+	)
+
+	description:Mapped[str] = mapped_column(
+		TEXT,
+
+		nullable = True
+	)
