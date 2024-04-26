@@ -1,6 +1,11 @@
 :root
 {
 	--flex-gap: 1em;
+
+	--palette1: rgb(45, 50, 80);
+	--palette2: rgb(66, 71, 105);
+	--palette3: rgb(112, 119, 161);
+	--palette-highlight: rgb(246, 177, 122);
 }
 
 *
