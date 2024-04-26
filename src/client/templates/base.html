@@ -27,7 +27,7 @@
 			</header>
 		{% endif %}
 
-		<div id="body_block">
+		<div id="body_block" class="{% block body_classes %} {% endblock %}">
 			{% block body %}
 			{% endblock %}
 		</div>
