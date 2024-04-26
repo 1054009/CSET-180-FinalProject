@@ -1,7 +1,18 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Test</title>
+		<title>
+			{% block title_prefix %}
+			{% endblock %}
+
+			{% block title %}
+			Stuff and Things
+			{% endblock %}
+
+			{% block title_suffix %}
+			- Home
+			{% endblock %}
+		</title>
 
 		<link rel="stylesheet" href="{{ url_for('static', filename = 'css/base.css') }}">
 	</head>
