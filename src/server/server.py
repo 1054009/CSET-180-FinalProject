@@ -7,9 +7,9 @@ from models import Base
 from session import session
 
 # Setup database
-Base.metadata.reflect(bind = engine)
-Base.metadata.drop_all(bind = engine)
-Base.metadata.create_all(bind = engine)
+Base.metadata.reflect(engine)
+Base.metadata.drop_all(engine)
+Base.metadata.create_all(engine)
 
 if system() == "Windows" and __name__ == "__main__":
 	app.run()
