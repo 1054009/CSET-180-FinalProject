@@ -343,7 +343,7 @@ class ComplaintImage(Base):
 		primary_key = True
 	)
 
-	complain_id:Mapped[int] = mapped_column(
+	complaint_id:Mapped[int] = mapped_column(
 		ForeignKey("complaints.id")
 	)
 
