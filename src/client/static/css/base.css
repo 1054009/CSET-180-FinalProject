@@ -37,7 +37,7 @@ html, body
 	display: flex;
 }
 
-.gap_flex
+.flex_gap
 {
 	gap: var(--flex-gap);
 }
