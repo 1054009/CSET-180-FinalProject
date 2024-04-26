@@ -28,6 +28,10 @@ def test():
 
 	test_customer = register_customer(test_user)
 
+	print(test_user.as_customer())
+	print(test_user.as_vendor())
+	print(test_user.as_admin())
+
 	print(test_customer.id)
 
 	vendor_user = User(

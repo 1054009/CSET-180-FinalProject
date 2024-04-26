@@ -44,6 +44,40 @@ class User(Base):
 		backref = "User"
 	)
 
+	# Not sure on the best way to do these,,,
+	customer = relationship(
+		"Customer",
+		backref = "User"
+	)
+
+	vendor = relationship(
+		"Vendor",
+		backref = "User"
+	)
+
+	admin = relationship(
+		"Admin",
+		backref = "User"
+	)
+
+	def as_customer(self):
+		if len(self.customer) < 1:
+			return None
+
+		return self.customer[0]
+
+	def as_vendor(self):
+		if len(self.vendor) < 1:
+			return None
+
+		return self.vendor[0]
+
+	def as_admin(self):
+		if len(self.admin) < 1:
+			return None
+
+		return self.admin[0]
+
 	# TODO: Carts
 
 	# Overrides
