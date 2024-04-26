@@ -42,6 +42,16 @@ html, body
 	flex-direction: column;
 }
 
+.flex_hcenter
+{
+	justify-content: center;
+}
+
+.flex_vcenter
+{
+	align-items: center;
+}
+
 header
 {
 	position: sticky;
@@ -51,8 +61,6 @@ header
 	height: var(--header-height);
 
 	border-bottom: 1px solid black;
-
-	align-items: center;
 }
 
 #body_block
@@ -73,6 +81,4 @@ footer
 	height: var(--footer-height);
 
 	border-top: 1px solid black;
-
-	align-items: center;
 }
