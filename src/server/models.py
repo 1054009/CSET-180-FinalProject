@@ -377,3 +377,20 @@ class Review(Base):
 
 		nullable = True
 	)
+
+class ReviewImage(Base):
+	__tablename__ = "review_images"
+
+	ignoreme_entry_id:Mapped[int] = mapped_column(
+		INTEGER(unsigned = True),
+
+		primary_key = True
+	)
+
+	review_id:Mapped[int] = mapped_column(
+		ForeignKey("reviews.id")
+	)
+
+	image_data:Mapped[str] = mapped_column(
+		LONGBLOB
+	)
