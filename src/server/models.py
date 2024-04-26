@@ -401,3 +401,5 @@ class ReviewImage(Base):
 	image_data:Mapped[str] = mapped_column(
 		LONGBLOB
 	)
+
+# TODO: Maybe chats?
