@@ -100,7 +100,8 @@ class Customer(Base):
 
 	user = relationship(
 		"User",
-		backref = "Customer"
+		backref = "Customer",
+		viewonly = True
 	)
 
 	def as_user(self): # Why is this one different than the one above
@@ -124,7 +125,8 @@ class Vendor(Base):
 
 	user = relationship(
 		"User",
-		backref = "Vendor"
+		backref = "Vendor",
+		viewonly = True
 	)
 
 	def as_user(self):
@@ -148,7 +150,8 @@ class Admin(Base):
 
 	user = relationship(
 		"User",
-		backref = "Admin"
+		backref = "Admin",
+		viewonly = True
 	)
 
 	def as_user(self):
