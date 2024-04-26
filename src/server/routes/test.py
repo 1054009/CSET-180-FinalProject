@@ -4,18 +4,26 @@ from flask import render_template
 from models import User, Customer, Vendor, Admin, Product, ProductImage, ProductDiscount, AvailableWarranty, ActiveWarranty
 from session import database
 
-
+from scripts.user_util import create_user
 
 from datetime import datetime
 
 @app.route("/test/")
 def test():
-	test_user = User(
+	# test_user = User(
+	# 	username = "jdog123",
+	# 	first_name = "James",
+	# 	last_name = "Douglas",
+	# 	email_address = "jd123@gmail.com",
+	# 	password = "awesomesecure456".encode("utf-8")
+	# )
+
+	test_user = create_user(
 		username = "jdog123",
 		first_name = "James",
 		last_name = "Douglas",
 		email_address = "jd123@gmail.com",
-		password = "awesomesecure456".encode("utf-8")
+		hashed_password = "awesomesecure456"
 	)
 
 	vendor_user = User(
@@ -26,7 +34,7 @@ def test():
 		password = "hisafe".encode("utf-8")
 	)
 
-	database.add_all([ test_user, vendor_user ])
+	database.add_all([ vendor_user ])
 	database.flush()
 
 	vendor_vendor = Vendor(
