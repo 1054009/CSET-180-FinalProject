@@ -124,7 +124,7 @@ class Vendor(Base):
 
 	user = relationship(
 		"User",
-		backref = "Customer"
+		backref = "Vendor"
 	)
 
 	def as_user(self):
@@ -148,7 +148,7 @@ class Admin(Base):
 
 	user = relationship(
 		"User",
-		backref = "Customer"
+		backref = "Admin"
 	)
 
 	def as_user(self):
