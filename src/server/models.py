@@ -38,7 +38,6 @@ class User(Base):
 		BLOB
 	)
 
-	# Relationships
 	warranties = relationship(
 		"ActiveWarranty",
 		backref = "User"
@@ -83,7 +82,6 @@ class User(Base):
 
 		return self.admin[0]
 
-	# Overrides
 	def __repr__(self) -> str:
 		return f"<User {self.email_address}>"
 
@@ -100,14 +98,12 @@ class Customer(Base):
 		ForeignKey("users.id")
 	)
 
-	# Relationships
 	user = relationship(
 		"User",
 		backref = "Customer"
 	)
 
-	# Why is this one different than the one above
-	def as_user(self):
+	def as_user(self): # Why is this one different than the one above
 		return self.user
 
 class Vendor(Base):
@@ -123,13 +119,11 @@ class Vendor(Base):
 		ForeignKey("users.id")
 	)
 
-	# Relationships
 	user = relationship(
 		"User",
 		backref = "Customer"
 	)
 
-	# Why is this one different than the one above
 	def as_user(self):
 		return self.user
 
@@ -146,13 +140,11 @@ class Admin(Base):
 		ForeignKey("users.id")
 	)
 
-	# Relationships
 	user = relationship(
 		"User",
 		backref = "Customer"
 	)
 
-	# Why is this one different than the one above
 	def as_user(self):
 		return self.user
 
@@ -192,8 +184,6 @@ class Product(Base):
 	price:Mapped[float] = mapped_column(
 		DECIMAL(8, 2, unsigned = True)
 	)
-
-	# Relationships
 
 	images = relationship(
 		"ProductImage",
@@ -312,8 +302,6 @@ class Cart(Base):
 		ForeignKey("users.id")
 	)
 
-	# Relationships
-
 	items = relationship(
 		"CartItem",
 		backref = "Cart"
@@ -394,8 +382,6 @@ class Complaint(Base):
 		ENUM("pending", "reviewed", "accepted", "declined")
 	)
 
-	# Relationships
-
 	images = relationship(
 		"ComplaintImage",
 		backref = "Complaint"
@@ -444,8 +430,6 @@ class Review(Base):
 
 		nullable = True
 	)
-
-	# Relationships
 
 	images = relationship(
 		"ReviewImage",
