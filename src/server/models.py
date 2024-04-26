@@ -106,6 +106,9 @@ class Customer(Base):
 	def as_user(self): # Why is this one different than the one above
 		return self.user
 
+	def __repr__(self) -> str:
+		return f"<Customer {self.as_user().email_address}>"
+
 class Vendor(Base):
 	__tablename__ = "vendors"
 
@@ -127,6 +130,9 @@ class Vendor(Base):
 	def as_user(self):
 		return self.user
 
+	def __repr__(self) -> str:
+		return f"<Vendor {self.as_user().email_address}>"
+
 class Admin(Base):
 	__tablename__ = "admins"
 
@@ -147,6 +153,9 @@ class Admin(Base):
 
 	def as_user(self):
 		return self.user
+
+	def __repr__(self) -> str:
+		return f"<Admin {self.as_user().email_address}>"
 
 class Product(Base):
 	__tablename__ = "products"
@@ -195,6 +204,9 @@ class Product(Base):
 		backref = "Product"
 	)
 
+	def __repr__(self) -> str:
+		return f"<Product {self.name}>"
+
 class ProductImage(Base):
 	__tablename__ = "product_images"
 
@@ -211,6 +223,9 @@ class ProductImage(Base):
 	image_data:Mapped[str] = mapped_column(
 		LONGBLOB
 	)
+
+	def __repr__(self) -> str:
+		return f"<ProductImage {self.ignoreme_entry_id}>"
 
 class ProductDiscount(Base):
 	__tablename__ = "product_discounts"
@@ -237,6 +252,9 @@ class ProductDiscount(Base):
 		TIMESTAMP
 	)
 
+	def __repr__(self) -> str:
+		return f"<ProductDiscount {self.id}>"
+
 class AvailableWarranty(Base):
 	__tablename__ = "available_warranty"
 
@@ -261,6 +279,9 @@ class AvailableWarranty(Base):
 
 		nullable = True
 	)
+
+	def __repr__(self) -> str:
+		return f"<AvailableWarranty {self.id}>"
 
 class ActiveWarranty(Base):
 	__tablename__ = "active_warranty"
@@ -289,6 +310,9 @@ class ActiveWarranty(Base):
 		nullable = True
 	)
 
+	def __repr__(self) -> str:
+		return f"<ActiveWarranty {self.id}>"
+
 class Cart(Base):
 	__tablename__ = "carts"
 
@@ -306,6 +330,9 @@ class Cart(Base):
 		"CartItem",
 		backref = "Cart"
 	)
+
+	def __repr__(self) -> str:
+		return f"<Cart {self.id}>"
 
 class CartItem(Base):
 	__tablename__ = "cart_items"
@@ -327,6 +354,9 @@ class CartItem(Base):
 	quantity:Mapped[int] = mapped_column(
 		INTEGER(unsigned = True)
 	)
+
+	def __repr__(self) -> str:
+		return f"<CartItem {self.ignoreme_entry_id}>"
 
 class Order(Base):
 	__tablename__ = "orders"
@@ -352,6 +382,9 @@ class Order(Base):
 	status:Mapped[str] = mapped_column(
 		ENUM("pending", "confirmed", "canceled", "shipped", "delivered")
 	)
+
+	def __repr__(self) -> str:
+		return f"<Order {self.id}>"
 
 class Complaint(Base):
 	__tablename__ = "complaints"
@@ -387,6 +420,9 @@ class Complaint(Base):
 		backref = "Complaint"
 	)
 
+	def __repr__(self) -> str:
+		return f"<Complaint {self.id}>"
+
 class ComplaintImage(Base):
 	__tablename__ = "complaint_images"
 
@@ -403,6 +439,9 @@ class ComplaintImage(Base):
 	image_data:Mapped[str] = mapped_column(
 		LONGBLOB
 	)
+
+	def __repr__(self) -> str:
+		return f"<ComplaintImage {self.ignoreme_entry_id}>"
 
 class Review(Base):
 	__tablename__ = "reviews"
@@ -436,6 +475,9 @@ class Review(Base):
 		backref = "Review"
 	)
 
+	def __repr__(self) -> str:
+		return f"<Review {self.id}>"
+
 class ReviewImage(Base):
 	__tablename__ = "review_images"
 
@@ -452,5 +494,8 @@ class ReviewImage(Base):
 	image_data:Mapped[str] = mapped_column(
 		LONGBLOB
 	)
+
+	def __repr__(self) -> str:
+		return f"<ReviewImage {self.ignoreme_entry_id}>"
 
 # TODO: Maybe chats?
