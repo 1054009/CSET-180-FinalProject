@@ -37,7 +37,7 @@ html, body
 	gap: var(--flex-gap);
 }
 
-.column_flex
+.flex_column
 {
 	flex-direction: column;
 }
