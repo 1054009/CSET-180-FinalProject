@@ -24,3 +24,13 @@ def register_customer(user):
 	database.flush()
 
 	return new_customer
+
+def register_vendor(user):
+	new_vendor = Vendor(
+		user_id = user.id
+	)
+
+	database.add(new_vendor)
+	database.flush()
+
+	return new_vendor
