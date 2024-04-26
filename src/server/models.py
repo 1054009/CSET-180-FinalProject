@@ -95,7 +95,9 @@ class Customer(Base):
 	)
 
 	user_id:Mapped[int] = mapped_column(
-		ForeignKey("users.id")
+		ForeignKey("users.id"),
+
+		unique = True
 	)
 
 	user = relationship(
@@ -120,7 +122,9 @@ class Vendor(Base):
 	)
 
 	user_id:Mapped[int] = mapped_column(
-		ForeignKey("users.id")
+		ForeignKey("users.id"),
+
+		unique = True
 	)
 
 	user = relationship(
@@ -145,7 +149,9 @@ class Admin(Base):
 	)
 
 	user_id:Mapped[int] = mapped_column(
-		ForeignKey("users.id")
+		ForeignKey("users.id"),
+
+		unique = True
 	)
 
 	user = relationship(
