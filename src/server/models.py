@@ -1,4 +1,4 @@
-from sqlalchemy.dialects.mysql import INTEGER, VARCHAR, BLOB, LONGBLOB, DECIMAL, TEXT, TIMESTAMP, ENUM
+from sqlalchemy.dialects.mysql import INTEGER, VARCHAR, BLOB, LONGBLOB, DECIMAL, TEXT, TIMESTAMP, ENUM, TINYINT
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 
@@ -368,8 +368,8 @@ class Review(Base):
 		TIMESTAMP
 	)
 
-	rating:Mapped(int) = mapped_column(
-		ENUM(1, 2, 3, 4, 5)
+	rating:Mapped[int] = mapped_column(
+		TINYINT
 	)
 
 	description:Mapped[str] = mapped_column(
