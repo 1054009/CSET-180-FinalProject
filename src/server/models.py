@@ -378,6 +378,13 @@ class Review(Base):
 		nullable = True
 	)
 
+	# Relationships
+
+	images = relationship(
+		"ReviewImage",
+		backref = "Review"
+	)
+
 class ReviewImage(Base):
 	__tablename__ = "review_images"
 
