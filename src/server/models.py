@@ -327,6 +327,13 @@ class Complaint(Base):
 		ENUM("pending", "reviewed", "accepted", "declined")
 	)
 
+	# Relationships
+
+	images = relationship(
+		"ComplaintImage",
+		backref = "Complaint"
+	)
+
 class ComplaintImage(Base):
 	__tablename__ = "complaint_images"
 
