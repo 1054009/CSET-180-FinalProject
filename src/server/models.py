@@ -326,3 +326,20 @@ class Complaint(Base):
 	status:Mapped[str] = mapped_column(
 		ENUM("pending", "reviewed", "accepted", "declined")
 	)
+
+class ComplaintImage(Base):
+	__tablename__ = "complaint_images"
+
+	ignoreme_entry_id:Mapped[int] = mapped_column(
+		INTEGER(unsigned = True),
+
+		primary_key = True
+	)
+
+	complain_id:Mapped[int] = mapped_column(
+		ForeignKey("complaints.id")
+	)
+
+	image_data:Mapped[str] = mapped_column(
+		LONGBLOB
+	)
