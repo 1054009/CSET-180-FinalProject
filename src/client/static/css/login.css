@@ -1,4 +1,15 @@
 form
 {
+	min-width: 50%;
+
+	padding: 1em;
+
 	background-color: var(--palette4);
+
+	border-top: 2px solid var(--palette-highlight)
+}
+
+form > div
+{
+	width: 100%;
 }

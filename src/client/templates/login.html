@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename = 'css/inputs.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename = 'css/login.css') }}">
 {% endblock %}
 
@@ -13,7 +14,17 @@ flexbox flex_hcenter flex_vcenter
 {% endblock %}
 
 {% block body %}
-<form class="flexbox flex_hcenter flex_vcenter">
-	<p>hey</p>
+<form class="flexbox flex_vcenter flex_column flex_gap">
+	<h2>Login to Your Account</h2>
+
+	<div class="input_icon flexbox flex_vcenter">
+		<ion-icon name="person-circle-outline"></ion-icon>
+		<input type="text" name="login_name" minlength="8" maxlength="64" placeholder="Username or Email Address" required>
+	</div>
+
+	<div class="input_icon flexbox flex_vcenter">
+		<ion-icon name="key-outline"></ion-icon>
+		<input type="password" name="password" maxlength="255" placeholder="Password" required>
+	</div>
 </form>
 {% endblock %}

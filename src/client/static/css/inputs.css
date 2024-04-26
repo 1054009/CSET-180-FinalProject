@@ -1,0 +1,25 @@
+.input_icon
+{
+	padding-left: 0.5em;
+
+	background-color: var(--palette3);
+}
+
+.input_icon ion-icon
+{
+	font-size: 2em;
+}
+
+input[type=text], input[type=password]
+{
+	padding: 1em;
+
+	background-color: var(--palette3);
+
+	border: none;
+}
+
+*:focus
+{
+	outline: none
+}
