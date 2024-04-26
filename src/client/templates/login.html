@@ -1,1 +1,19 @@
 {% extends "base.html" %}
+
+{% block title_suffix %}
+- Login
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename = 'css/login.css') }}">
+{% endblock %}
+
+{% block body_classes %}
+flexbox flex_hcenter flex_vcenter
+{% endblock %}
+
+{% block body %}
+<form class="flexbox flex_hcenter flex_vcenter">
+	<p>hey</p>
+</form>
+{% endblock %}
