@@ -207,6 +207,14 @@ class Product(Base):
 		backref = "Product"
 	)
 
+	vendor = relationship(
+		"Vendor",
+		backref = "Product"
+	)
+
+	def get_vendor(self):
+		return self.vendor
+
 	def __repr__(self) -> str:
 		return f"<Product {self.name}>"
 

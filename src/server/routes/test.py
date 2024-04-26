@@ -64,6 +64,8 @@ def test():
 	database.add(spoon)
 	database.flush()
 
+	print(spoon.vendor)
+
 	spoon_warranty = AvailableWarranty(
 		product_id = spoon.id,
 		coverage_days = 50
