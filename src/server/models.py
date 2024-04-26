@@ -100,6 +100,16 @@ class Customer(Base):
 		ForeignKey("users.id")
 	)
 
+	# Relationships
+	user = relationship(
+		"User",
+		backref = "Customer"
+	)
+
+	# Why is this one different than the one above
+	def as_user(self):
+		return self.user
+
 class Vendor(Base):
 	__tablename__ = "vendors"
 
@@ -113,6 +123,16 @@ class Vendor(Base):
 		ForeignKey("users.id")
 	)
 
+	# Relationships
+	user = relationship(
+		"User",
+		backref = "Customer"
+	)
+
+	# Why is this one different than the one above
+	def as_user(self):
+		return self.user
+
 class Admin(Base):
 	__tablename__ = "admins"
 
@@ -125,6 +145,16 @@ class Admin(Base):
 	user_id:Mapped[int] = mapped_column(
 		ForeignKey("users.id")
 	)
+
+	# Relationships
+	user = relationship(
+		"User",
+		backref = "Customer"
+	)
+
+	# Why is this one different than the one above
+	def as_user(self):
+		return self.user
 
 class Product(Base):
 	__tablename__ = "products"
