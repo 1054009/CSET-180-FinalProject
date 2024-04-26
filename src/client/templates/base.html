@@ -22,7 +22,7 @@
 
 	<body>
 		<header class="flexbox flex_vcenter">
-			<p>h</p>
+			{% include 'header.html' %}
 		</header>
 
 		<div id="body_block">
@@ -30,7 +30,7 @@
 			{% endblock %}
 		</div>
 
-		<footer class="flexbox flex_vcenter">
+		<footer class="flexbox flex_hspace flex_vcenter">
 			{% include 'footer.html' %}
 		</footer>
 
