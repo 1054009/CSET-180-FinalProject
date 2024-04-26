@@ -1,7 +1,10 @@
+from app import app
 from flask import render_template
 
 from models import User, Customer, Vendor, Admin, Product, ProductImage, ProductDiscount, AvailableWarranty, ActiveWarranty
 from session import database
+
+
 
 from datetime import datetime
 

@@ -1,4 +1,6 @@
+from app import app
 from flask import send_file, url_for
+
 from pathlib import Path
 
 @app.route("/favicon.ico")

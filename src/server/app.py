@@ -15,13 +15,11 @@ app = Flask(
 app.secret_key = token_hex()
 
 # Load routes
-for route_name in os.listdir(EXECUTING_DIRECTORY / "../scripts/routes"):
+for route_name in os.listdir(EXECUTING_DIRECTORY / "routes"):
 	if not route_name.endswith(".py"):
 		continue
 
-	route_path = (EXECUTING_DIRECTORY / f"../scripts/routes/{route_name}").resolve()
+	if route_name == "__init__.py":
+		continue
 
-	try:
-		exec(open(route_path).read(), globals())
-	except Exception as error:
-		print(error)
+	__import__(f"routes.{route_name[:-3]}", locals(), globals())
