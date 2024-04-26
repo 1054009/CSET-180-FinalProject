@@ -8,6 +8,5 @@ def login():
 	return render_template(
 		"login.html",
 
-		no_header = True,
 		no_footer = True
 	)
