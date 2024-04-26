@@ -1,7 +1,7 @@
 from flask import render_template
 
 from models import User, Customer, Vendor, Admin, Product, ProductImage, ProductDiscount, AvailableWarranty, ActiveWarranty
-from session import session
+from session import database
 
 from datetime import datetime
 
@@ -23,15 +23,15 @@ def test():
 		password = "hisafe".encode("utf-8")
 	)
 
-	session.add_all([ test_user, vendor_user ])
-	session.flush()
+	database.add_all([ test_user, vendor_user ])
+	database.flush()
 
 	vendor_vendor = Vendor(
 		user_id = vendor_user.id
 	)
 
-	session.add(vendor_vendor)
-	session.flush()
+	database.add(vendor_vendor)
+	database.flush()
 
 	spoon = Product(
 		name = "Big Spoon",
@@ -41,16 +41,16 @@ def test():
 		price = 3.25
 	)
 
-	session.add(spoon)
-	session.flush()
+	database.add(spoon)
+	database.flush()
 
 	spoon_warranty = AvailableWarranty(
 		product_id = spoon.id,
 		coverage_days = 50
 	)
 
-	session.add(spoon_warranty)
-	session.flush()
+	database.add(spoon_warranty)
+	database.flush()
 
 	users_spoon_warranty = ActiveWarranty(
 		warranty_id = spoon_warranty.id,
@@ -58,10 +58,10 @@ def test():
 		activation_time = str(datetime.now())
 	)
 
-	session.add(users_spoon_warranty)
-	session.flush()
+	database.add(users_spoon_warranty)
+	database.flush()
 
 	test_user.warranties.append(users_spoon_warranty)
-	session.commit()
+	database.commit()
 
 	return render_template("base.html")
