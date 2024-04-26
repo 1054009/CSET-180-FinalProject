@@ -42,6 +42,11 @@ html, body
 	flex-direction: column;
 }
 
+.flex_hspace
+{
+	justify-content: space-between;
+}
+
 .flex_hcenter
 {
 	justify-content: center;
