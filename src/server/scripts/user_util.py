@@ -2,45 +2,57 @@ from models import User, Customer, Vendor, Admin, Product, ProductImage, Product
 from session import database
 
 def create_user(username, first_name, last_name, email_address, hashed_password):
-	new_user = User(
-		username = username,
-		first_name = first_name,
-		last_name = last_name,
-		email_address = email_address,
-		password = hashed_password.encode("utf-8")
-	)
+	try:
+		new_user = User(
+			username = username,
+			first_name = first_name,
+			last_name = last_name,
+			email_address = email_address,
+			password = hashed_password.encode("utf-8")
+		)
 
-	database.add(new_user)
-	database.flush()
+		database.add(new_user)
+		database.flush()
 
-	return new_user
+		return new_user
+	except:
+		return None
 
 def register_customer(user):
-	new_customer = Customer(
-		user_id = user.id
-	)
+	try:
+		new_customer = Customer(
+			user_id = user.id
+		)
 
-	database.add(new_customer)
-	database.flush()
+		database.add(new_customer)
+		database.flush()
 
-	return new_customer
+		return new_customer
+	except:
+		return None
 
 def register_vendor(user):
-	new_vendor = Vendor(
-		user_id = user.id
-	)
+	try:
+		new_vendor = Vendor(
+			user_id = user.id
+		)
 
-	database.add(new_vendor)
-	database.flush()
+		database.add(new_vendor)
+		database.flush()
 
-	return new_vendor
+		return new_vendor
+	except:
+		return None
 
 def register_admin(user):
-	new_admin = Admin(
-		user_id = user.id
-	)
+	try:
+		new_admin = Admin(
+			user_id = user.id
+		)
 
-	database.add(new_admin)
-	database.flush()
+		database.add(new_admin)
+		database.flush()
 
-	return new_admin
+		return new_admin
+	except:
+		return None
