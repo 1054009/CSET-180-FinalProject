@@ -6,6 +6,9 @@
 	--palette2: rgb(66, 71, 105);
 	--palette3: rgb(112, 119, 161);
 	--palette-highlight: rgb(246, 177, 122);
+
+	--header-height: 5em;
+	--footer-height: 5em;
 }
 
 *
@@ -37,4 +40,39 @@ html, body
 .column_flex
 {
 	flex-direction: column;
+}
+
+header
+{
+	position: sticky;
+	top: 0;
+
+	width: 100%;
+	height: var(--header-height);
+
+	border-bottom: 1px solid black;
+
+	align-items: center;
+}
+
+#body_block
+{
+	padding-top: 1em;
+	padding-bottom: 1em;
+
+	width: 100%;
+	min-height: calc(100% - (var(--header-height) + var(--footer-height)));
+}
+
+footer
+{
+	padding-top: 1em;
+	padding-bottom: 1em;
+
+	width: 100%;
+	height: var(--footer-height);
+
+	border-top: 1px solid black;
+
+	align-items: center;
 }
