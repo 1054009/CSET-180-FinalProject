@@ -44,6 +44,11 @@ class User(Base):
 		backref = "User"
 	)
 
+	carts = relationship(
+		"Cart",
+		backref = "User"
+	)
+
 	# Not sure on the best way to do these,,,
 	customer = relationship(
 		"Customer",
@@ -77,8 +82,6 @@ class User(Base):
 			return None
 
 		return self.admin[0]
-
-	# TODO: Carts
 
 	# Overrides
 	def __repr__(self) -> str:
