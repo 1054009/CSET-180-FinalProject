@@ -200,7 +200,9 @@ class AvailableWarranty(Base):
 	)
 
 	coverage_information:Mapped[str] = mapped_column(
-		TEXT
+		TEXT,
+
+		nullable = True
 	)
 
 class ActiveWarranty(Base):
