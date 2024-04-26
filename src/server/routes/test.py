@@ -4,7 +4,7 @@ from flask import render_template
 from models import User, Customer, Vendor, Admin, Product, ProductImage, ProductDiscount, AvailableWarranty, ActiveWarranty
 from session import database
 
-from scripts.user_util import create_user
+from scripts.user_util import create_user, register_customer
 
 from datetime import datetime
 
@@ -25,6 +25,10 @@ def test():
 		email_address = "jd123@gmail.com",
 		hashed_password = "awesomesecure456"
 	)
+
+	test_customer = register_customer(test_user)
+
+	print(test_customer.id)
 
 	vendor_user = User(
 		username = "mrdude",

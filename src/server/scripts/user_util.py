@@ -14,3 +14,13 @@ def create_user(username, first_name, last_name, email_address, hashed_password)
 	database.flush()
 
 	return new_user
+
+def register_customer(user):
+	new_customer = Customer(
+		user_id = user.id
+	)
+
+	database.add(new_customer)
+	database.flush()
+
+	return new_customer
