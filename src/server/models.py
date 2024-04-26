@@ -297,3 +297,32 @@ class Order(Base):
 	status:Mapped[str] = mapped_column(
 		ENUM("pending", "confirmed", "canceled", "shipped", "delivered")
 	)
+
+class Complaint(Base):
+	__tablename__ = "complaints"
+
+	id:Mapped[int] = mapped_column(
+		INTEGER(unsigned = True),
+
+		primary_key = True
+	)
+
+	user_id:Mapped[int] = mapped_column(
+		ForeignKey("users.id")
+	)
+
+	timestamp:Mapped[str] = mapped_column(
+		TIMESTAMP
+	)
+
+	title:Mapped[str] = mapped_column(
+		VARCHAR(255)
+	)
+
+	description:Mapped[str] = mapped_column(
+		TEXT
+	)
+
+	status:Mapped[str] = mapped_column(
+		ENUM("pending", "reviewed", "accepted", "declined")
+	)
