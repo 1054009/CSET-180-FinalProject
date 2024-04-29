@@ -1,12 +1,15 @@
-form
+#login_container
 {
 	min-width: 50%;
+}
+
+form
+{
+	width: 100%;
 
 	padding: 1em;
 
 	background-color: var(--palette4);
-
-	border-top: 2px solid var(--palette-highlight)
 }
 
 form > div
