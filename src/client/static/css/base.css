@@ -97,6 +97,29 @@ h1, h2, h3, h4, p
 	box-shadow: 0 0.1em 1.5em 0 rgba(0, 0, 0, var(--pop-alpha));
 }
 
+.float_left
+{
+	float: left;
+
+	margin-right: auto;
+}
+
+.float_right
+{
+	float: right;
+
+	margin-left: auto;
+}
+
+.clearfix::after
+{
+	content: "";
+
+	clear: both;
+
+	display: table;
+}
+
 header
 {
 	position: sticky;
