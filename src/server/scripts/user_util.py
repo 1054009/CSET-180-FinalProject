@@ -20,7 +20,9 @@ def create_user(username, first_name, last_name, email_address, hashed_password)
 
 def get_user(username):
 	try:
-		return database.query(User).filter(User.username == username).first()
+		users = database.query(User)
+
+		return users.filter(User.username == username).first()
 	except:
 		return None
 
