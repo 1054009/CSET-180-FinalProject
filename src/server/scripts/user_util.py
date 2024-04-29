@@ -18,6 +18,12 @@ def create_user(username, first_name, last_name, email_address, hashed_password)
 	except:
 		return None
 
+def get_user(username):
+	try:
+		return database.query(User).filter(User.username == username).first()
+	except:
+		return None
+
 def register_customer(user):
 	try:
 		new_customer = Customer(
