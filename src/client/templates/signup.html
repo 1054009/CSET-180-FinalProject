@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title_suffix %}
+- Sign Up
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename = 'css/inputs.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'css/login.css') }}">
+{% endblock %}
+
+{% block body_classes %}
+flexbox flex_hcenter flex_vcenter
+{% endblock %}
+
+{% block body %}
+<div id="login_container" class="upper_glow pop">
+	<form class="flexbox flex_vcenter flex_column flex_gap">
+		<h2>Sign Up for an Account</h2>
+
+		<div class="input_icon flexbox flex_vcenter">
+			<ion-icon name="person-circle-outline"></ion-icon>
+			<input type="text" name="username" minlength="8" maxlength="64" placeholder="Username" required>
+		</div>
+
+		<div class="input_icon flexbox flex_vcenter">
+			<ion-icon name="mail-outline"></ion-icon>
+			<input type="email" name="email" minlength="8" maxlength="64" placeholder="Email Address" required>
+		</div>
+
+		<div class="input_icon flexbox flex_vcenter">
+			<ion-icon name="key-outline"></ion-icon>
+			<input type="password" name="password" maxlength="255" placeholder="Password" required>
+		</div>
+
+		<div class="input_icon flexbox flex_vcenter">
+			<ion-icon name="key-outline"></ion-icon>
+			<input type="password" name="password_verify" maxlength="255" placeholder="Verify Password" required>
+		</div>
+
+		<div class="flexbox flex_hspace">
+			<div class="flexbox flex_column flex_hcenter">
+				<p>Already have an account? <a href="/login">Login</a></p>
+			</div>
+
+			<input type="submit" value="Sign Up">
+		</div>
+	</form>
+</div>
+{% endblock %}
