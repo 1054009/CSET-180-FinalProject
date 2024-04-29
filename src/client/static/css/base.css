@@ -11,6 +11,8 @@
 
 	--header-height: 5em;
 	--footer-height: 5em;
+
+	--pop-alpha: 0.5;
 }
 
 *
@@ -92,7 +94,7 @@ h1, h2, h3, h4, p
 
 .pop
 {
-	box-shadow: 0 0.1em 1.5em 0 black;
+	box-shadow: 0 0.1em 1.5em 0 rgba(0, 0, 0, var(--pop-alpha));
 }
 
 header
