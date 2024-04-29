@@ -3,6 +3,10 @@
 	padding-left: 0.5em;
 
 	background-color: var(--palette1);
+
+	border: 1px solid transparent;
+
+	transition: border 0.5s;
 }
 
 .input_icon ion-icon
@@ -19,6 +23,11 @@
 	border-left: 1px solid black;
 }
 
+.input_icon:has(input:focus)
+{
+	border: 1px solid var(--palette-highlight);
+}
+
 input
 {
 	padding: 1em;
@@ -26,9 +35,11 @@ input
 	background-color: var(--palette2);
 
 	border: none;
+
+	transition: background-color 0.5s;
 }
 
-input[type=submit]
+input[type=button], input[type=submit]
 {
 	min-width: 10em;
 
@@ -37,9 +48,16 @@ input[type=submit]
 	color: black;
 
 	background-color: var(--palette-highlight);
+
+	transition: none;
 }
 
 *:focus
 {
 	outline: none
+}
+
+input:focus
+{
+	background-color: var(--palette1);
 }
