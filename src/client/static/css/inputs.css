@@ -33,6 +33,10 @@ input[type=submit]
 	min-width: 10em;
 
 	cursor: pointer;
+
+	color: black;
+
+	background-color: var(--palette-highlight);
 }
 
 *:focus
