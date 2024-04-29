@@ -45,6 +45,18 @@ p
 	font-size: 0.9em;
 }
 
+a
+{
+	transition: text-shadow 0.5s;
+}
+
+a:hover
+{
+	text-shadow:
+		var(--palette-highlight) 0 0 1em,
+		var(--palette-highlight) 0 0 1em;
+}
+
 .flexbox
 {
 	display: flex;
