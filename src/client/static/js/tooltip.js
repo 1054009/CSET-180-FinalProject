@@ -99,6 +99,7 @@ export class ToolTip
 				builder.addClasses([
 					"tooltip",
 
+					"pop",
 					"flexbox",
 					"flex_vcenter"
 				])
