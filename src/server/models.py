@@ -265,7 +265,7 @@ class ProductDiscount(Base):
 		TIMESTAMP
 	)
 
-	end_times:Mapped[str] = mapped_column(
+	end_time:Mapped[str] = mapped_column(
 		TIMESTAMP
 	)
 
