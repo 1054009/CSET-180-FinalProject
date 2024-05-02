@@ -1,0 +1,34 @@
+.flexbox
+{
+	display: flex;
+}
+
+.flex_fill
+{
+	flex: 1;
+}
+
+.flex_gap
+{
+	gap: var(--flex-gap);
+}
+
+.flex_column
+{
+	flex-direction: column;
+}
+
+.flex_hspace
+{
+	justify-content: space-between;
+}
+
+.flex_hcenter
+{
+	justify-content: center;
+}
+
+.flex_vcenter
+{
+	align-items: center;
+}
