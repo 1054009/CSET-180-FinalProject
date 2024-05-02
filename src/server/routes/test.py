@@ -24,7 +24,7 @@ def test():
 		hashed_password = "awesomesecure456"
 	)
 
-	print(to_json(test_user))
+	# print(to_json(test_user))
 
 	test_customer = register_customer(test_user)
 
@@ -87,7 +87,9 @@ def test():
 	database_session.commit()
 
 	print(get_user_by_username(test_user.username))
-	print(objects_as_json(User))
-	print(objects_as_json(User, "id", 1))
+	# print(objects_as_json(User))
+	# print(objects_as_json(User, "id", 1))
+	print(spoon.price)
+	print(objects_as_json(Product))
 
 	return render_template("base.html")

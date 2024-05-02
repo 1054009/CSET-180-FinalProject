@@ -1,9 +1,11 @@
 from database_session import database_session
+from decimal import Decimal # ?? Floats ??
 import collections.abc
 import json
 
 PRIMITIVES = (
 	bool,
+	Decimal,
 	float,
 	int,
 	str,
