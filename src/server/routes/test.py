@@ -121,7 +121,8 @@ def test():
 	print(get_user_by_username(test_user.username))
 	# print(objects_as_json(User))
 	# print(objects_as_json(User, "id", 1))
-	print(spoon.price)
-	print(objects_as_json(Product))
+	# print(spoon.price)
+	# print(objects_as_json(Product))
+	# print(objects_as_json(ProductImage))
 
 	return render_template("base.html")
