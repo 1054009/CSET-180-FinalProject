@@ -112,6 +112,13 @@ a:hover
 	border-top: 2px solid var(--palette-highlight);
 }
 
+.text_glow
+{
+	text-shadow:
+		var(--palette-highlight) 0 0 1em,
+		var(--palette-highlight) 0 0 1em;
+}
+
 .pop
 {
 	box-shadow: 0 0.1em 1.5em 0 rgba(0, 0, 0, var(--pop-alpha));
