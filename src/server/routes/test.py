@@ -5,6 +5,8 @@ from models import User, Customer, Vendor, Admin, Product, ProductImage, Product
 from scripts.user_util import create_user, register_customer, get_user_by_username
 from template_renderer import render_template
 
+from scripts.object_util import to_json
+
 @app.route("/test/")
 def test():
 	# test_user = User(
@@ -22,6 +24,8 @@ def test():
 		email_address = "jd123@gmail.com",
 		hashed_password = "awesomesecure456"
 	)
+
+	print(to_json(test_user))
 
 	test_customer = register_customer(test_user)
 
