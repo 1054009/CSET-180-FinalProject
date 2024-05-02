@@ -114,6 +114,8 @@ a:hover
 
 .text_glow
 {
+	color: var(--palette-highlight);
+
 	text-shadow:
 		var(--palette-highlight) 0 0 1em,
 		var(--palette-highlight) 0 0 1em;
