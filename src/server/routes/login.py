@@ -42,4 +42,4 @@ def login_post():
 	session["user_id"] = user.id
 	session["email_address"] = user.email_address
 
-	return redirect("/home/")
+	return redirect("/products/")
