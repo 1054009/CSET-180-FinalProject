@@ -1,0 +1,32 @@
+.upper_glow::before
+{
+	width: 100%;
+	height: 3px;
+
+	margin-top: -3px;
+	margin-bottom: -3px;
+
+	display: block;
+
+	content: "";
+
+	box-shadow: 0 0.1em 1em 0.1em var(--palette-highlight);
+
+	border-top: 2px solid var(--palette-highlight);
+}
+
+.text_glow
+{
+	color: var(--palette-highlight);
+
+	text-shadow:
+		var(--palette-highlight) 0 0 1em,
+		var(--palette-highlight) 0 0 1em;
+}
+
+.text_glow_weak
+{
+	color: var(--palette-highlight);
+
+	text-shadow: var(--palette-highlight) 0 0 0.5em;
+}
