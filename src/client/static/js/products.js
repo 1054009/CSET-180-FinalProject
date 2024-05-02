@@ -35,24 +35,48 @@ function updateProductDisplay()
 		{
 			g_Builder.startElement("div")
 			{
-				g_Builder.addClass("product_card")
 				g_Builder.addClass("upper_glow")
 
-				g_Builder.startElement("img")
+				g_Builder.startElement("div")
 				{
-					g_Builder.setProperty("src", getProductImages(productData.id)[0])
-				}
-				g_Builder.endElement()
+					g_Builder.addClass("product_card")
+					g_Builder.addClass("flexbox")
+					g_Builder.addClass("flex_column")
 
-				g_Builder.startElement("p")
-				{
-					g_Builder.setProperty("innerHTML", productData.price)
-				}
-				g_Builder.endElement()
+					g_Builder.startElement("div")
+					{
+						g_Builder.addClass("flexbox")
+						g_Builder.addClass("flex_hcenter")
+						g_Builder.addClass("flex_vcenter")
 
-				g_Builder.startElement("p")
-				{
-					g_Builder.setProperty("innerHTML", productData.inventory)
+						g_Builder.startElement("div")
+						{
+							g_Builder.addClass("product_image")
+							g_Builder.addClass("flexbox")
+							g_Builder.addClass("flex_hcenter")
+							g_Builder.addClass("flex_vcenter")
+
+							g_Builder.startElement("img")
+							{
+								g_Builder.setProperty("src", getProductImages(productData.id)[0])
+							}
+							g_Builder.endElement()
+						}
+						g_Builder.endElement()
+					}
+					g_Builder.endElement()
+
+					g_Builder.startElement("h3")
+					{
+						g_Builder.setProperty("innerHTML", productData.name)
+					}
+					g_Builder.endElement()
+
+					g_Builder.startElement("p")
+					{
+						g_Builder.setProperty("innerHTML", productData.inventory)
+					}
+					g_Builder.endElement()
 				}
 				g_Builder.endElement()
 			}

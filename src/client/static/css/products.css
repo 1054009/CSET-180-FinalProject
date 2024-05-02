@@ -11,9 +11,28 @@
 	grid-auto-flow: row;
 }
 
-.product_card
+#product_grid > div, .product_card
 {
 	width: 100%;
 
 	background-color: var(--palette1);
+}
+
+.product_card
+{
+	padding: 1em;
+}
+
+.product_image
+{
+	aspect-ratio: 1 / 1;
+	width: 50%;
+
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+.product_image img
+{
+	max-width: 100%;
+	max-height: 100%;
 }
