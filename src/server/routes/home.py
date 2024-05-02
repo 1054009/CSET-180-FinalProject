@@ -1,7 +1,7 @@
 from app import app
-from flask import render_template
 from database_session import database_session
 from models import User, Product, Review
+from template_renderer import render_template
 
 @app.route("/")
 @app.route("/home/")
