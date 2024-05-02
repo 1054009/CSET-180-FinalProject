@@ -24,9 +24,25 @@ def signup_post():
 	email = request.form.get("email", "stupid@idiot.com")
 	password = request.form.get("password", "stupididiot")
 
-	existing = get_user_by_username(username) or get_user_by_email(email)
+	existing = get_user_by_username(username)
 	if existing is not None:
-		return redirect("/signup/") # TODO: Error
+		return render_template(
+			"signup.html",
+
+			tooltip_element = "input[name=username]",
+			tooltip_text = "A user with this name already exists",
+			tooltip_direction = 2
+		)
+
+	existing = get_user_by_email(email)
+	if existing is not None:
+		return render_template(
+			"signup.html",
+
+			tooltip_element = "input[name=email]",
+			tooltip_text = "A user with this email already exists",
+			tooltip_direction = 2
+		)
 
 	create_user(
 		username,

@@ -16,14 +16,17 @@
 
 		<link rel="stylesheet" href="{{ url_for('static', filename = 'css/base.css') }}">
 
+		<script type="module" src="{{ url_for('static', filename = 'js/error.js') }}"></script>
+
 		{% block head %}
 		{% endblock %}
 	</head>
 
 	<body>
 		<script>
-			TOOLTIP_ELEMENT = "{{ tooltip_element | string }}"
-			TOOLTIP_TEXT = "{{ tooltip_text | string }}"
+			const TOOLTIP_ELEMENT = "{{ tooltip_element | string }}"
+			const TOOLTIP_TEXT = "{{ tooltip_text | string }}"
+			const TOOLTIP_DIRECTION = "{{ tooltip_direction | string }}"
 
 			{% block js_passthrough %}
 			{% endblock %}

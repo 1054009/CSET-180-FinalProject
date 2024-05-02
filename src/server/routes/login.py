@@ -22,10 +22,22 @@ def login_post():
 
 	user = get_user_by_username(login_name) or get_user_by_email(login_name)
 	if user is None:
-		return redirect("/login/") # TODO: Error
+		return render_template(
+			"login.html",
+
+			tooltip_element = "input[name=login_name]",
+			tooltip_text = "User not found",
+			tooltip_direction = 2
+		)
 
 	if not verify_password(user, password):
-		return redirect("/login/") # TODO: Error
+		return render_template(
+			"login.html",
+
+			tooltip_element = "input[name=password]",
+			tooltip_text = "Incorrect password entered",
+			tooltip_direction = 2
+		)
 
 	session["user_id"] = user.id
 	session["email_address"] = user.email_address
