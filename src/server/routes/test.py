@@ -2,7 +2,7 @@ from app import app
 from flask import render_template
 
 from models import User, Customer, Vendor, Admin, Product, ProductImage, ProductDiscount, AvailableWarranty, ActiveWarranty
-from session import database
+from database_session import database_session
 
 from scripts.user_util import create_user, register_customer, get_user
 
@@ -43,15 +43,15 @@ def test():
 		password = "hisafe".encode("utf-8")
 	)
 
-	database.add_all([ vendor_user ])
-	database.flush()
+	database_session.add_all([ vendor_user ])
+	database_session.flush()
 
 	vendor_vendor = Vendor(
 		user_id = vendor_user.id
 	)
 
-	database.add(vendor_vendor)
-	database.flush()
+	database_session.add(vendor_vendor)
+	database_session.flush()
 
 	spoon = Product(
 		name = "Big Spoon",
@@ -61,8 +61,8 @@ def test():
 		price = 3.25
 	)
 
-	database.add(spoon)
-	database.flush()
+	database_session.add(spoon)
+	database_session.flush()
 
 	print(spoon.vendor)
 
@@ -71,8 +71,8 @@ def test():
 		coverage_days = 50
 	)
 
-	database.add(spoon_warranty)
-	database.flush()
+	database_session.add(spoon_warranty)
+	database_session.flush()
 
 	users_spoon_warranty = ActiveWarranty(
 		warranty_id = spoon_warranty.id,
@@ -80,11 +80,11 @@ def test():
 		activation_time = str(datetime.now())
 	)
 
-	database.add(users_spoon_warranty)
-	database.flush()
+	database_session.add(users_spoon_warranty)
+	database_session.flush()
 
 	test_user.warranties.append(users_spoon_warranty)
-	database.commit()
+	database_session.commit()
 
 	print(get_user(test_user.username))
 

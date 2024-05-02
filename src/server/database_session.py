@@ -1,4 +1,4 @@
 from engine import engine
 from sqlalchemy.orm import Session
 
-database = Session(bind = engine)
+database_session = Session(bind = engine)

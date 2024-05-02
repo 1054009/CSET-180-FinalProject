@@ -1,5 +1,5 @@
 from models import User, Customer, Vendor, Admin, Product, ProductImage, ProductDiscount, AvailableWarranty, ActiveWarranty
-from session import database
+from database_session import database_session
 
 def create_user(username, first_name, last_name, email_address, hashed_password):
 	try:
@@ -11,8 +11,8 @@ def create_user(username, first_name, last_name, email_address, hashed_password)
 			password = hashed_password.encode("utf-8")
 		)
 
-		database.add(new_user)
-		database.flush()
+		database_session.add(new_user)
+		database_session.flush()
 
 		return new_user
 	except:
@@ -20,7 +20,7 @@ def create_user(username, first_name, last_name, email_address, hashed_password)
 
 def get_user(username):
 	try:
-		users = database.query(User)
+		users = database_session.query(User)
 
 		return users.filter(User.username == username).first()
 	except:
@@ -32,8 +32,8 @@ def register_customer(user):
 			user_id = user.id
 		)
 
-		database.add(new_customer)
-		database.flush()
+		database_session.add(new_customer)
+		database_session.flush()
 
 		return new_customer
 	except:
@@ -45,8 +45,8 @@ def register_vendor(user):
 			user_id = user.id
 		)
 
-		database.add(new_vendor)
-		database.flush()
+		database_session.add(new_vendor)
+		database_session.flush()
 
 		return new_vendor
 	except:
@@ -58,8 +58,8 @@ def register_admin(user):
 			user_id = user.id
 		)
 
-		database.add(new_admin)
-		database.flush()
+		database_session.add(new_admin)
+		database_session.flush()
 
 		return new_admin
 	except:
