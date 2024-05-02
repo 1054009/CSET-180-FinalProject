@@ -3,9 +3,9 @@ import json
 
 PRIMITIVES = (
 	bool,
-	str,
-	int,
 	float,
+	int,
+	str,
 	type(None)
 )
 
