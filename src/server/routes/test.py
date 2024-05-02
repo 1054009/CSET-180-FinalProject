@@ -2,10 +2,9 @@ from app import app
 from database_session import database_session
 from datetime import datetime
 from models import User, Customer, Vendor, Admin, Product, ProductImage, ProductDiscount, AvailableWarranty, ActiveWarranty
+from scripts.object_util import to_json
 from scripts.user_util import create_user, register_customer, get_user_by_username
 from template_renderer import render_template
-
-from scripts.object_util import to_json
 
 @app.route("/test/")
 def test():
