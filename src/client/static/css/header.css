@@ -15,8 +15,3 @@ header
 
 	background-color: var(--palette1);
 }
-
-header ion-icon
-{
-	font-size: 3em;
-}
