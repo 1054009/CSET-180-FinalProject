@@ -1,0 +1,22 @@
+header
+{
+	position: sticky;
+	top: 0;
+
+	width: 100%;
+	height: var(--header-height);
+
+	padding-left: var(--side-padding);
+	padding-right: var(--side-padding);
+	padding-top: 1em;
+	padding-bottom: 1em;
+
+	border-bottom: 1px solid var(--palette3);
+
+	background-color: var(--palette1);
+}
+
+header ion-icon
+{
+	font-size: 3em;
+}
