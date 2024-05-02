@@ -13,6 +13,11 @@
 	gap: var(--flex-gap);
 }
 
+.flex_gap_big
+{
+	gap: calc(var(--flex-gap) + 0.5em);
+}
+
 .flex_gap_small
 {
 	gap: calc(var(--flex-gap) / 2);
