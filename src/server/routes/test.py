@@ -1,12 +1,9 @@
 from app import app
-from flask import render_template
-
-from models import User, Customer, Vendor, Admin, Product, ProductImage, ProductDiscount, AvailableWarranty, ActiveWarranty
 from database_session import database_session
-
-from scripts.user_util import create_user, register_customer, get_user_by_username
-
 from datetime import datetime
+from flask import render_template
+from models import User, Customer, Vendor, Admin, Product, ProductImage, ProductDiscount, AvailableWarranty, ActiveWarranty
+from scripts.user_util import create_user, register_customer, get_user_by_username
 
 @app.route("/test/")
 def test():

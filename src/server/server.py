@@ -2,9 +2,9 @@
 from platform import system
 
 from app import app
+from database_session import database_session
 from engine import engine
 from models import Base
-from database_session import database_session
 
 # Setup database
 Base.metadata.reflect(engine)

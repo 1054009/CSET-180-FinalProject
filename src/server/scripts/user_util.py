@@ -1,5 +1,5 @@
-from models import User, Customer, Vendor, Admin, Product, ProductImage, ProductDiscount, AvailableWarranty, ActiveWarranty
 from database_session import database_session
+from models import User, Customer, Vendor, Admin, Product, ProductImage, ProductDiscount, AvailableWarranty, ActiveWarranty
 
 def create_user(username, first_name, last_name, email_address, hashed_password):
 	try:

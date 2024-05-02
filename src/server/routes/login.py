@@ -1,7 +1,7 @@
 from app import app
 from flask import render_template, redirect, request, session
-from scripts.user_util import get_user_by_username, get_user_by_email
 from scripts.password_util import verify_password
+from scripts.user_util import get_user_by_username, get_user_by_email
 
 @app.route("/login/")
 def login_get():
