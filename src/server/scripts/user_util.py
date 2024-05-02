@@ -12,7 +12,7 @@ def create_user(username, first_name, last_name, email_address, hashed_password)
 		)
 
 		database_session.add(new_user)
-		database_session.flush()
+		database_session.commit()
 
 		return new_user
 	except:
@@ -33,7 +33,7 @@ def register_customer(user):
 		)
 
 		database_session.add(new_customer)
-		database_session.flush()
+		database_session.commit()
 
 		return new_customer
 	except:
@@ -46,7 +46,7 @@ def register_vendor(user):
 		)
 
 		database_session.add(new_vendor)
-		database_session.flush()
+		database_session.commit()
 
 		return new_vendor
 	except:
@@ -59,7 +59,7 @@ def register_admin(user):
 		)
 
 		database_session.add(new_admin)
-		database_session.flush()
+		database_session.commit()
 
 		return new_admin
 	except:
