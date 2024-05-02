@@ -50,6 +50,8 @@ p
 
 a
 {
+	cursor: pointer;
+
 	transition: text-shadow 0.5s;
 }
 
