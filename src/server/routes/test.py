@@ -4,7 +4,7 @@ from flask import render_template
 from models import User, Customer, Vendor, Admin, Product, ProductImage, ProductDiscount, AvailableWarranty, ActiveWarranty
 from database_session import database_session
 
-from scripts.user_util import create_user, register_customer, get_user
+from scripts.user_util import create_user, register_customer, get_user_by_username
 
 from datetime import datetime
 
@@ -86,6 +86,6 @@ def test():
 	test_user.warranties.append(users_spoon_warranty)
 	database_session.commit()
 
-	print(get_user(test_user.username))
+	print(get_user_by_username(test_user.username))
 
 	return render_template("base.html")
