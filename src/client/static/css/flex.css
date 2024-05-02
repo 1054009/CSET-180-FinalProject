@@ -13,6 +13,11 @@
 	gap: var(--flex-gap);
 }
 
+.flex_gap_small
+{
+	gap: calc(var(--flex-gap) / 2);
+}
+
 .flex_column
 {
 	flex-direction: column;
