@@ -92,6 +92,9 @@ def to_json(object):
 		property_value = getattr(object, property)
 		if callable(property_value): continue
 
+		if isinstance(property_value, bytes): # Byte strings are stupid
+			property_value = property_value.decode("utf-8")
+
 		if is_primitive(property_value): # Bloody strings count as sequences
 			data[property] = to_json(property_value)
 			continue
