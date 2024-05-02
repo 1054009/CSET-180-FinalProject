@@ -55,11 +55,21 @@ a
 	transition: text-shadow 0.5s;
 }
 
+a > ion-icon
+{
+	transition: filter 0.5s;
+}
+
 a:hover
 {
 	text-shadow:
 		var(--palette-highlight) 0 0 1em,
 		var(--palette-highlight) 0 0 1em;
+}
+
+a:hover > ion-icon
+{
+	filter: drop-shadow(0 0 1em var(--palette-highlight));
 }
 
 .pop
