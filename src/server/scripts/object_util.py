@@ -1,3 +1,4 @@
+from database_session import database_session
 import collections.abc
 import json
 
@@ -98,3 +99,16 @@ def to_json(object):
 		data[property] = to_json(property_value)
 
 	return json.dumps(data)
+
+def objects_as_json(type, filter_name = None, filter_value = None):
+	objects = []
+
+	query = database_session.query(type)
+
+	if filter_name is not None:
+		query = query.filter(getattr(type, filter_name) == filter_value)
+
+	for object in query.all():
+		objects.append(to_json(object))
+
+	return json.dumps(objects)
