@@ -1,11 +1,26 @@
 {% extends "base.html" %}
 
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename = 'css/home.css') }}">
+{% endblock %}
+
 {% block body_classes %}
-flexbox flex_hcenter flex_vcenter
+flexbox flex_hcenter flex_vcenter flex_column
 {% endblock %}
 
 {% block body %}
-<div>
-	stats will go here at some point
+<div class="flexbox flex_vcenter flex_gap">
+	<h4 class="text_glow_weak">{{ user_count }}</h4>
+	<p>Registered Users</p>
+</div>
+
+<div class="flexbox flex_vcenter flex_gap">
+	<h4 class="text_glow_weak">{{ product_count }}</h4>
+	<p>Available Products</p>
+</div>
+
+<div class="flexbox flex_vcenter flex_gap">
+	<h4 class="text_glow_weak">{{ review_count }}</h4>
+	<p>Received Reviews</p>
 </div>
 {% endblock %}
