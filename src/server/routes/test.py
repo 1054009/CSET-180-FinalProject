@@ -61,7 +61,23 @@ def test():
 		price = 3.25
 	)
 
-	database_session.add(spoon)
+	carrot = Product(
+		name = "Carrot",
+		description = "crumhch",
+		vendor_id = vendor_vendor.id,
+		inventory = 3,
+		price = 5
+	)
+
+	sock = Product(
+		name = "Socks",
+		description = "yay",
+		vendor_id = vendor_vendor.id,
+		inventory = 3,
+		price = 5
+	)
+
+	database_session.add_all([spoon, carrot, sock])
 	database_session.flush()
 
 	print(spoon.vendor)
