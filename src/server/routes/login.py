@@ -1,8 +1,10 @@
 from app import app
-from flask import render_template, session
+from flask import render_template, redirect, request, session
+from scripts.user_util import get_user_by_username, get_user_by_email
+from scripts.password_util import verify_password
 
 @app.route("/login/")
-def login():
+def login_get():
 	session.clear()
 
 	return render_template(
@@ -10,3 +12,22 @@ def login():
 
 		no_footer = True
 	)
+
+@app.route("/login/", methods = [ "POST" ])
+def login_post():
+	session.clear()
+
+	login_name = request.form.get("login_name")
+	password = request.form.get("password") # Not encrypted during transit :(
+
+	user = get_user_by_username(login_name) or get_user_by_email(login_name)
+	if user is None:
+		return redirect("/login/") # TODO: Error
+
+	if not verify_password(user, password):
+		return redirect("/login/") # TODO: Error
+
+	session["user_id"] = user.id
+	session["email_address"] = user.email_address
+
+	return redirect("/home/")
