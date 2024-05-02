@@ -121,6 +121,13 @@ a:hover
 		var(--palette-highlight) 0 0 1em;
 }
 
+.text_glow_weak
+{
+	color: var(--palette-highlight);
+
+	text-shadow: var(--palette-highlight) 0 0 0.5em;
+}
+
 .pop
 {
 	box-shadow: 0 0.1em 1.5em 0 rgba(0, 0, 0, var(--pop-alpha));
