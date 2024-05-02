@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title_suffix %}
+- Products
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename = 'css/products.css') }}">
+
+<script type="module" src="{{ url_for('static', filename = 'js/products.js') }}"></script>
+{% endblock %}
+
+{% block body_classes %}
+
+{% endblock %}
+
+{% block body %}
+<script>
+	PRODUCT_LIST = {{ product_list | tojson }}
+</script>
+
+<div id="product_grid">
+
+</div>
+{% endblock %}

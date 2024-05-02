@@ -1,0 +1,10 @@
+#product_grid
+{
+	display: grid;
+	align-items: center;
+	justify-items: center;
+	justify-content: space-between;
+
+	grid-template-columns: 5em 5em 5em;
+	grid-auto-flow: row;
+}
