@@ -23,6 +23,10 @@
 			<link rel="stylesheet" href="{{ url_for('static', filename = 'css/header.css') }}">
 		{% endif %}
 
+		{% if not no_footer %}
+			<link rel="stylesheet" href="{{ url_for('static', filename = 'css/footer.css') }}">
+		{% endif %}
+
 		<script type="module" src="{{ url_for('static', filename = 'js/error.js') }}"></script>
 
 		{% block head %}
