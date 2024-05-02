@@ -21,6 +21,14 @@
 	</head>
 
 	<body>
+		<script>
+			TOOLTIP_ELEMENT = "{{ tooltip_element | string }}"
+			TOOLTIP_TEXT = "{{ tooltip_text | string }}"
+
+			{% block js_passthrough %}
+			{% endblock %}
+		</script>
+
 		{% if not no_header %}
 			<header class="flexbox flex_hspace flex_vcenter">
 				{% include "header.html" %}
