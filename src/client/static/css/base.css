@@ -13,6 +13,8 @@
 	--header-height: 5em;
 	--footer-height: 5em;
 
+	--side-padding: 5em;
+
 	--pop-alpha: 0.5;
 }
 
@@ -198,6 +200,11 @@ header
 	width: 100%;
 	height: var(--header-height);
 
+	padding-left: var(--side-padding);
+	padding-right: var(--side-padding);
+	padding-top: 1em;
+	padding-bottom: 1em;
+
 	border-bottom: 1px solid var(--palette3);
 
 	background-color: var(--palette1);
@@ -205,6 +212,8 @@ header
 
 #body_block
 {
+	padding-left: var(--side-padding);
+	padding-right: var(--side-padding);
 	padding-top: 1em;
 	padding-bottom: 1em;
 
@@ -214,6 +223,8 @@ header
 
 footer
 {
+	padding-left: var(--side-padding);
+	padding-right: var(--side-padding);
 	padding-top: 1em;
 	padding-bottom: 1em;
 
