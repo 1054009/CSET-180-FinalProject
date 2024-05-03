@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block head %}
-
+<script type="module" src="{{ url_for('static', filename = 'js/cart.js') }}"></script>
 {% endblock %}
 
 {% block body_classes %}
@@ -14,7 +14,7 @@
 
 {% block body %}
 <script>
-
+	CART_ITEMS = {{ cart_items | tojson }}
 </script>
 
 <div id="cart_grid">
