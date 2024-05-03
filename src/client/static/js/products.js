@@ -32,6 +32,8 @@ function updateProductDisplay()
 	const product_grid = document.querySelector("#product_grid")
 	if (!g_Helper.isValidElement(product_grid)) return // TODO: Error
 
+	const hasValidSession = document.body.g_bSessionIsValid
+
 	g_Builder.start(product_grid)
 	{
 		g_Builder.setProperty("innerHTML", "")
@@ -112,6 +114,26 @@ function updateProductDisplay()
 								g_Builder.setProperty("innerHTML", `${productData.inventory} in stock`)
 							}
 							g_Builder.endElement()
+						}
+						g_Builder.endElement()
+					}
+					g_Builder.endElement()
+
+					g_Builder.startElement("div")
+					{
+						g_Builder.addClass("flexbox")
+						g_Builder.addClass("flex_hcenter")
+
+						g_Builder.startElement("input")
+						{
+							g_Builder.setAttribute("type", "button")
+
+							console.log(hasValidSession)
+
+							if (!hasValidSession)
+								g_Builder.setProperty("disabled", true)
+
+							g_Builder.setProperty("value", "Add to Cart")
 						}
 						g_Builder.endElement()
 					}
