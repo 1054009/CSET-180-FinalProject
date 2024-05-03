@@ -9,15 +9,11 @@ from template_renderer import render_template
 @app.route("/products/")
 def products_get():
 	product_list = objects_as_json(Product)
-	product_images = objects_as_json(ProductImage)
-	product_discounts = objects_as_json(ProductDiscount)
 
 	return render_template(
 		"products.html",
 
-		product_list = product_list,
-		product_images = product_images,
-		product_discounts = product_discounts
+		product_list = product_list
 	)
 
 @app.route("/products/add_to_cart/", methods = [ "POST" ])
