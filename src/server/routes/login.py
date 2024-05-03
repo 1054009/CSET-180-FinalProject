@@ -8,11 +8,7 @@ from template_renderer import render_template
 def login_get():
 	session.clear()
 
-	return render_template(
-		"login.html",
-
-		no_footer = True
-	)
+	return render_template("login.html")
 
 @app.route("/login/", methods = [ "POST" ])
 def login_post():

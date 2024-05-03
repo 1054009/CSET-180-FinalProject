@@ -8,11 +8,7 @@ from template_renderer import render_template
 def signup_get():
 	session.clear()
 
-	return render_template(
-		"signup.html",
-
-		no_footer = True
-	)
+	return render_template("signup.html")
 
 @app.route("/signup/", methods = [ "POST" ])
 def signup_post():
