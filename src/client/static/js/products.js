@@ -128,12 +128,12 @@ function updateProductDisplay()
 						{
 							g_Builder.setAttribute("type", "button")
 
-							console.log(hasValidSession)
-
 							if (!hasValidSession)
 								g_Builder.setProperty("disabled", true)
 
 							g_Builder.setProperty("value", "Add to Cart")
+
+							// TODO: Add to cart functionality
 						}
 						g_Builder.endElement()
 					}
