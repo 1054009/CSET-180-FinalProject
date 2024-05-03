@@ -22,6 +22,9 @@ INDEX_PROPERTIES = ( # TODO: Arrays and such
 	"last_name",
 	"email_address",
 
+	"warranties",
+	"carts",
+
 	# Customer, Vendor, Admin
 	"user_id",
 
@@ -32,7 +35,9 @@ INDEX_PROPERTIES = ( # TODO: Arrays and such
 	"vendor_id",
 	"inventory",
 	"price",
+
 	"images",
+	"dicounts",
 
 	# ProductImage
 	"product_id",
@@ -53,10 +58,13 @@ INDEX_PROPERTIES = ( # TODO: Arrays and such
 	"expiration_time",
 
 	# Cart
+	"items",
 
 	# CartItem
 	"cart_id",
 	"quantity",
+
+	"product",
 
 	# Order
 	"timestamp",
