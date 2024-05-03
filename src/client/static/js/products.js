@@ -8,6 +8,7 @@ const g_Builder = new DOMBuilder()
 
 var g_ProductList = []
 var g_ImageList = []
+var g_DiscountList = [] // TODO: Use this
 
 const g_CurrencyFormatter = Intl.NumberFormat("en-US", {
 	"style": "currency",
@@ -166,6 +167,7 @@ g_Helper.hookEvent(window, "load", false, () =>
 {
 	g_ProductList = fixJSONList(PRODUCT_LIST)
 	g_ImageList = fixJSONList(PRODUCT_IMAGES)
+	g_DiscountList = fixJSONList(PRODUCT_DISCOUNTS)
 
 	updateProductDisplay()
 })
