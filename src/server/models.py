@@ -372,6 +372,11 @@ class CartItem(Base):
 		INTEGER(unsigned = True)
 	)
 
+	product = relationship(
+		"Product",
+		backref = "CartItem"
+	)
+
 	def __repr__(self) -> str:
 		return f"<CartItem {self.ignoreme_entry_id}>"
 
