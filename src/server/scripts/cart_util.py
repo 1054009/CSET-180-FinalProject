@@ -38,6 +38,13 @@ def get_best_cart(email_address):
 	else:
 		return carts[0]
 
+def get_cart_items(email_address):
+	cart = get_best_cart(email_address)
+	if cart is None:
+		return []
+
+	return cart.items
+
 def add_to_cart(email_address, product_id):
 	cart = get_best_cart(email_address)
 	if cart is None:
