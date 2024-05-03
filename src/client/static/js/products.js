@@ -40,6 +40,10 @@ function updateProductDisplay()
 
 		for (const productData of g_ProductList)
 		{
+			const masterID = g_Helper.getNumber(productData.master_product_id)
+			if (masterID > 0)
+				continue // TODO: Make sure this works
+
 			g_Builder.startElement("div")
 			{
 				g_Builder.addClass("upper_glow")
