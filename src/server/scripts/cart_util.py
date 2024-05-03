@@ -26,3 +26,11 @@ def create_cart(email_address):
 	database_session.commit()
 
 	return cart
+
+def get_best_cart(email_address):
+	carts = get_usable_carts(email_address)
+
+	if len(carts) < 1:
+		return create_cart(email_address)
+	else:
+		return carts[0]
