@@ -14,6 +14,9 @@ export function isJSON(string)
 export function fixJSONList(list) // Because I'm bad at handling JSON
 {
 	const parsedList = JSON.parse(list)
+	if (!(parsedList instanceof Array))
+		return parsedList
+
 	const newList = []
 
 	for (const block of parsedList)
