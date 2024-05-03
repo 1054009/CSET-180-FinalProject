@@ -7,8 +7,6 @@ const g_Helper = new Helper()
 const g_Builder = new DOMBuilder()
 
 var g_ProductList = []
-var g_ImageList = []
-var g_DiscountList = [] // TODO: Use this
 
 const g_CurrencyFormatter = Intl.NumberFormat("en-US", {
 	"style": "currency",
@@ -69,11 +67,15 @@ function updateProductDisplay()
 							g_Builder.addClass("flex_hcenter")
 							g_Builder.addClass("flex_vcenter")
 
-							g_Builder.startElement("img")
+							const imageObject = productData.images[0]
+							if (imageObject)
 							{
-								g_Builder.setProperty("src", getProductImages(productData.id)[0])
+								g_Builder.startElement("img")
+								{
+									g_Builder.setProperty("src", imageObject.image_data)
+								}
+								g_Builder.endElement()
 							}
-							g_Builder.endElement()
 						}
 						g_Builder.endElement()
 					}
@@ -166,8 +168,6 @@ function updateProductDisplay()
 g_Helper.hookEvent(window, "load", false, () =>
 {
 	g_ProductList = fixJSONList(PRODUCT_LIST)
-	g_ImageList = fixJSONList(PRODUCT_IMAGES)
-	g_DiscountList = fixJSONList(PRODUCT_DISCOUNTS)
 
 	updateProductDisplay()
 })
