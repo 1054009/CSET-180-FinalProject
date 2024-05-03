@@ -3,6 +3,7 @@ from database_session import database_session
 from datetime import datetime
 from models import User, Customer, Vendor, Admin, Product, ProductImage, ProductDiscount, AvailableWarranty, ActiveWarranty
 from scripts.object_util import to_json, objects_as_json
+from scripts.password_util import sha_string
 from scripts.user_util import create_user, register_customer, get_user_by_username
 from template_renderer import render_template
 
@@ -17,11 +18,11 @@ def test():
 	# )
 
 	test_user = create_user(
-		username = "jdog123",
+		username = "tester213",
 		first_name = "James",
 		last_name = "Douglas",
-		email_address = "jd123@gmail.com",
-		hashed_password = "awesomesecure456"
+		email_address = "a@a.a",
+		hashed_password = sha_string("a")
 	)
 
 	# print(to_json(test_user))
