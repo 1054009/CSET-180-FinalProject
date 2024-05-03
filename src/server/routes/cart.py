@@ -1,6 +1,5 @@
 from app import app
-from flask import redirect, request, session
-from models import Cart, CartItem
+from flask import redirect, session
 from scripts.cart_util import get_cart_items
 from scripts.object_util import to_json
 from scripts.session_util import validate_session
