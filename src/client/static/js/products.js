@@ -155,8 +155,6 @@ g_Helper.hookEvent(window, "load", false, () =>
 {
 	g_ProductList = fixJSONList(PRODUCT_LIST)
 	g_ImageList = fixJSONList(PRODUCT_IMAGES)
-	console.log(g_ProductList)
-	console.log(g_ImageList)
 
 	updateProductDisplay()
 })
