@@ -1,5 +1,5 @@
 from database_session import database_session
-from models import Product, ProductImage, ProductDiscount, Cart, Order
+from models import Product, ProductImage, ProductDiscount, Cart, CartItem, Order
 from scripts.user_util import get_user_by_email
 
 def get_usable_carts(email_address):
@@ -36,3 +36,26 @@ def get_best_cart(email_address):
 		return create_cart(email_address)
 	else:
 		return carts[0]
+
+def add_to_cart(email_address, product):
+	cart = get_best_cart(email_address)
+	if cart is None:
+		return False
+
+	for item in cart.items:
+		if item.product_id == product.id:
+			item.quantity += 1
+			database_session.commit()
+
+			return item
+
+	item = CartItem(
+		cart_id = cart.id,
+		product_id = product.id,
+		quantity = 1
+	)
+
+	database_session.add(item)
+	database_session.commit()
+
+	return item
