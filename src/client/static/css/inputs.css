@@ -74,7 +74,7 @@ input[type=button]:not(:disabled):hover, input[type=submit]:not(:disabled):hover
 	outline: none
 }
 
-input:focus
+input[type=text]:focus, input[type=email]:focus, input[type=password]:focus
 {
 	background-color: var(--palette1);
 }
