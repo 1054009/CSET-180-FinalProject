@@ -12,7 +12,7 @@ def get_usable_carts(email_address):
 	# Once a cart is used for an order, it's considered locked
 	return database_session.query(Cart)										\
 							.outerjoin(Order, Cart.id == Order.cart_id)		\
-							.filter(Order.cart_id is None)					\
+							.filter(Order.cart_id is not None)				\
 							.order_by(Cart.id.desc())						\
 							.all() # TODO: Test this somehow
 
