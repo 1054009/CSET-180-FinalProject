@@ -39,6 +39,11 @@ input
 	transition: background-color 0.5s;
 }
 
+input:disabled
+{
+	cursor: not-allowed;
+}
+
 input[type=button], input[type=submit]
 {
 	min-width: 10em;
@@ -52,7 +57,14 @@ input[type=button], input[type=submit]
 	transition: box-shadow 0.5s;
 }
 
-input[type=button]:hover, input[type=submit]:hover
+input[type=button]:disabled, input[type=submit]:disabled
+{
+	cursor: not-allowed;
+
+	opacity: 0.25;
+}
+
+input[type=button]:not(:disabled):hover, input[type=submit]:not(:disabled):hover
 {
 	box-shadow: 0 0.1em 1em 0.1em var(--palette-highlight);
 }
