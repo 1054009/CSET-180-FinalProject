@@ -32,6 +32,7 @@ INDEX_PROPERTIES = ( # TODO: Arrays and such
 	"vendor_id",
 	"inventory",
 	"price",
+	"images",
 
 	# ProductImage
 	"product_id",
@@ -100,12 +101,6 @@ def to_json(object):
 
 		if isinstance(property_value, bytes): # Byte strings are stupid
 			property_value = property_value.decode("utf-8")
-
-		if is_primitive(property_value): # Bloody strings count as sequences
-			data[property] = to_json(property_value)
-			continue
-
-		if isinstance(property_value, collections.abc.Sequence): continue # TODO: Arrays and such
 
 		data[property] = to_json(property_value)
 
