@@ -9,6 +9,11 @@ const g_Builder = new DOMBuilder()
 var g_ProductList = []
 var g_ImageList = []
 
+const g_CurrencyFormatter = Intl.NumberFormat("en-US", {
+	"style": "currency",
+	"currency": "USD"
+})
+
 function getProductImages(id)
 {
 	const images = []
@@ -42,6 +47,7 @@ function updateProductDisplay()
 					g_Builder.addClass("product_card")
 					g_Builder.addClass("flexbox")
 					g_Builder.addClass("flex_column")
+					g_Builder.addClass("flex_gap")
 
 					g_Builder.startElement("div")
 					{
@@ -66,15 +72,48 @@ function updateProductDisplay()
 					}
 					g_Builder.endElement()
 
-					g_Builder.startElement("h3")
+					g_Builder.startElement("div")
 					{
-						g_Builder.setProperty("innerHTML", productData.name)
-					}
-					g_Builder.endElement()
+						g_Builder.addClass("flexbox")
+						g_Builder.addClass("flex_column")
 
-					g_Builder.startElement("p")
-					{
-						g_Builder.setProperty("innerHTML", productData.inventory)
+						g_Builder.startElement("div")
+						{
+							g_Builder.addClass("flexbox")
+							g_Builder.addClass("flex_hspace")
+
+							g_Builder.startElement("h3")
+							{
+								g_Builder.setProperty("innerHTML", productData.name)
+							}
+							g_Builder.endElement()
+
+							g_Builder.startElement("h4")
+							{
+								g_Builder.setProperty("innerHTML", g_CurrencyFormatter.format(productData.price))
+							}
+							g_Builder.endElement()
+						}
+						g_Builder.endElement()
+
+						g_Builder.startElement("div")
+						{
+							g_Builder.addClass("flexbox")
+							g_Builder.addClass("flex_hspace")
+
+							g_Builder.startElement("p")
+							{
+								g_Builder.setProperty("innerHTML", productData.description)
+							}
+							g_Builder.endElement()
+
+							g_Builder.startElement("p")
+							{
+								g_Builder.setProperty("innerHTML", `${productData.inventory} in stock`)
+							}
+							g_Builder.endElement()
+						}
+						g_Builder.endElement()
 					}
 					g_Builder.endElement()
 				}
