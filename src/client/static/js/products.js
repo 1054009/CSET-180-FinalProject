@@ -123,21 +123,32 @@ function updateProductDisplay()
 					}
 					g_Builder.endElement()
 
-					g_Builder.startElement("div")
+					g_Builder.startElement("form")
 					{
+						g_Builder.setAttribute("action", "/products/add_to_cart/")
+						g_Builder.setAttribute("method", "POST")
+
 						g_Builder.addClass("flexbox")
 						g_Builder.addClass("flex_hcenter")
 
 						g_Builder.startElement("input")
 						{
-							g_Builder.setAttribute("type", "button")
+							g_Builder.setAttribute("type", "hidden")
+							g_Builder.setAttribute("name", "product_id")
+
+							// TODO: Variants
+							g_Builder.setProperty("value", productData.id)
+						}
+						g_Builder.endElement()
+
+						g_Builder.startElement("input")
+						{
+							g_Builder.setAttribute("type", "submit")
 
 							if (!hasValidSession)
 								g_Builder.setProperty("disabled", true)
 
 							g_Builder.setProperty("value", "Add to Cart")
-
-							// TODO: Add to cart functionality
 						}
 						g_Builder.endElement()
 					}
