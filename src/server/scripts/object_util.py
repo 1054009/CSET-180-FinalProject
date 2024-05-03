@@ -81,11 +81,17 @@ def to_json(object):
 	if is_primitive(object):
 		return str(object)
 
-	properties = dir(object)
+	if isinstance(object, collections.abc.Sequence): # Fix for when an array is passed in
+		data = []
+
+		for sub in object:
+			data.append(to_json(sub))
+
+		return json.dumps(data)
 
 	data = {}
 
-	for property in properties:
+	for property in dir(object):
 		if property.startswith("_"): continue
 		if not property in INDEX_PROPERTIES: continue
 
