@@ -12,3 +12,17 @@ def get_usable_carts(email_address):
 							.filter(Order.cart_id is None)					\
 							.order_by(Cart.id.desc())						\
 							.all()
+
+def create_cart(email_address):
+	user = get_user_by_email(email_address)
+	if user is None:
+		return None
+
+	cart = Cart(
+		user_id = user.id
+	)
+
+	database_session.add(cart)
+	database_session.commit()
+
+	return cart
