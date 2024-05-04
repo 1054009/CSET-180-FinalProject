@@ -87,7 +87,7 @@ function updateCartList()
 						{
 							g_Builder.addClass("float_right")
 
-							g_Builder.setAttribute("type", "button")
+							g_Builder.setAttribute("type", "submit")
 
 							g_Builder.setProperty("value", "Remove")
 
@@ -110,7 +110,7 @@ function updateCartList()
 			{
 				g_Builder.addClass("float_right")
 
-				g_Builder.setAttribute("type", "button")
+				g_Builder.setAttribute("type", "submit")
 
 				g_Builder.setProperty("value", "Place order")
 
