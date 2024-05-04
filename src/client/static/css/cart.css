@@ -1,0 +1,12 @@
+.cart_item
+{
+	padding: 1em;
+
+	background-color: var(--palette1);
+}
+
+.cart_item img
+{
+	width: 3em;
+	height: auto;
+}

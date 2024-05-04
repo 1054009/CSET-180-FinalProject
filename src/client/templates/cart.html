@@ -5,11 +5,9 @@
 {% endblock %}
 
 {% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename = 'css/cart.css') }}">
+
 <script type="module" src="{{ url_for('static', filename = 'js/cart.js') }}"></script>
-{% endblock %}
-
-{% block body_classes %}
-
 {% endblock %}
 
 {% block body %}
@@ -17,7 +15,7 @@
 	CART_ITEMS = {{ cart_items | tojson }}
 </script>
 
-<div id="cart_grid" class="flexbox flex_column flex_gap">
+<div id="cart_grid" class="flexbox flex_column flex_gap_big">
 
 </div>
 {% endblock %}
