@@ -101,6 +101,24 @@ function updateCartList()
 			}
 			g_Builder.endElement()
 		}
+
+		g_Builder.startElement("form")
+		{
+			g_Builder.setProperty("style.paddingRight", "1em")
+
+			g_Builder.startElement("input")
+			{
+				g_Builder.addClass("float_right")
+
+				g_Builder.setAttribute("type", "button")
+
+				g_Builder.setProperty("value", "Place order")
+
+				// TODO: Functionality to place order
+			}
+			g_Builder.endElement()
+		}
+		g_Builder.endElement()
 	}
 	g_Builder.end()
 }
