@@ -109,9 +109,5 @@ g_Helper.hookEvent(window, "load", false, () =>
 {
 	g_ItemList = fixJSONList(CART_ITEMS)
 
-
-
 	updateCartList()
-
-	console.log(g_ItemList)
 })
