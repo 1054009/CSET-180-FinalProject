@@ -70,6 +70,8 @@ function updateCartList()
 						g_Builder.startElement("p")
 						{
 							g_Builder.setProperty("innerHTML", `${item.quantity} in cart`)
+
+							// TODO: Ability to change amount in cart
 						}
 						g_Builder.endElement()
 					}
@@ -88,6 +90,8 @@ function updateCartList()
 							g_Builder.setAttribute("type", "button")
 
 							g_Builder.setProperty("value", "Remove")
+
+							// TODO: Functionality to remove
 						}
 						g_Builder.endElement()
 					}
