@@ -13,19 +13,6 @@ const g_CurrencyFormatter = Intl.NumberFormat("en-US", {
 	"currency": "USD"
 })
 
-function getProductImages(id)
-{
-	const images = []
-
-	for (const imageData of g_ImageList)
-	{
-		if (imageData.product_id == id)
-			images.push(imageData.image_data)
-	}
-
-	return images
-}
-
 function updateProductDisplay()
 {
 	const product_grid = document.querySelector("#product_grid")
