@@ -1,11 +1,11 @@
 from app import app
 from database_session import database_session
 from datetime import datetime
+from flask import redirect
 from models import User, Customer, Vendor, Admin, Product, ProductImage, ProductDiscount, AvailableWarranty, ActiveWarranty
 from scripts.object_util import to_json, objects_as_json
 from scripts.password_util import sha_string
 from scripts.user_util import create_user, register_customer, get_user_by_username
-from template_renderer import render_template
 
 @app.route("/test/")
 def test():
@@ -130,4 +130,4 @@ def test():
 		database_session.rollback()
 		database_session.commit()
 
-	return render_template("base.html")
+	return redirect("/login/")
