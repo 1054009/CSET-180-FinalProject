@@ -20,17 +20,17 @@ def create_user(username, first_name, last_name, email_address, hashed_password)
 
 def get_user_by_username(username):
 	try:
-		users = database_session.query(User)
-
-		return users.filter(User.username == username).first()
+		return database_session.query(User)								\
+								.filter(User.username == username)		\
+								.first()
 	except:
 		return None
 
 def get_user_by_email(email_address):
 	try:
-		users = database_session.query(User)
-
-		return users.filter(User.email_address == email_address).first()
+		return database_session.query(User)											\
+								.filter(User.email_address == email_address)		\
+								.first()
 	except:
 		return None
 

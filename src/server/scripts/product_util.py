@@ -7,9 +7,9 @@ def get_products():
 
 def get_product(id):
 	try:
-		products = database_session.query(Product)
-
-		return products.filter(Product.id == id).first()
+		return database_session.query(Product)					\
+								.filter(Product.id == id)		\
+								.first()
 	except:
 		return None
 
