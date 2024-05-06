@@ -10,11 +10,11 @@ def get_usable_carts(email_address):
 
 	# Get all carts that are NOT part of an order
 	# Once a cart is used for an order, it's considered locked
+	order_carts = database_session.query(Order.cart_id)
+
 	return database_session.query(Cart)										\
-							.outerjoin(Order, Cart.id == Order.cart_id)		\
-							.filter(Order.cart_id is not None)				\
-							.order_by(Cart.id.desc())						\
-							.all() # TODO: Test this somehow
+							.filter(Cart.id.not_in(order_carts))			\
+							.all()
 
 def create_cart(email_address):
 	user = get_user_by_email(email_address)
