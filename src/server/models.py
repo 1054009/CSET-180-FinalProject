@@ -405,6 +405,11 @@ class Order(Base):
 		ENUM("pending", "confirmed", "canceled", "shipped", "delivered")
 	)
 
+	cart = relationship(
+		"Cart",
+		backref = "Order"
+	)
+
 	def __repr__(self) -> str:
 		return f"<Order {self.id}>"
 
