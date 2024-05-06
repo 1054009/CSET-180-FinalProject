@@ -104,6 +104,9 @@ function updateCartList()
 
 		g_Builder.startElement("form")
 		{
+			g_Builder.setAttribute("action", "/cart/place_order")
+			g_Builder.setAttribute("method", "POST")
+
 			g_Builder.setProperty("style.paddingRight", "1em")
 
 			g_Builder.startElement("input")
