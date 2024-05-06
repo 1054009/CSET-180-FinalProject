@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title_suffix %}
+- Cart
+{% endblock %}
+
+{% block head %}
+<script type="module" src="{{ url_for('static', filename = 'js/order.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+<script>
+	ORDER_DATA = {{ order_data | tojson }}
+	ORDER_ITEMS = {{ order_items | tojson }}
+</script>
+
+
+{% endblock %}

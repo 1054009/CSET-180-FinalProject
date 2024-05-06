@@ -54,4 +54,4 @@ def cart_post():
 	database_session.add(order)
 	database_session.commit()
 
-	return redirect("/cart/")
+	return redirect(f"/order/{order.id}")
