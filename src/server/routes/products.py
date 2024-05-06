@@ -28,5 +28,6 @@ def products_post():
 
 	success = add_to_cart(user.email_address, product_id)
 	# TODO: Show message depending on success
+	# TODO: Handle cart amount going above available inventory
 
 	return redirect("/products/")
