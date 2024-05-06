@@ -116,8 +116,6 @@ function updateCartList()
 				g_Builder.setAttribute("type", "submit")
 
 				g_Builder.setProperty("value", "Place order")
-
-				// TODO: Functionality to place order
 			}
 			g_Builder.endElement()
 		}
