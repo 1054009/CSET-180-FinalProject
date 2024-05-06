@@ -1,5 +1,5 @@
 from database_session import database_session
-from models import Product, ProductImage, ProductDiscount, Cart, CartItem, Order
+from models import Cart, CartItem, Order
 from scripts.product_util import get_product
 from scripts.user_util import get_user_by_email
 
