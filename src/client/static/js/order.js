@@ -16,7 +16,10 @@ const g_CurrencyFormatter = Intl.NumberFormat("en-US", {
 
 function displayOrder()
 {
-	const order_table = document.querySelector("#order_details table")
+	const order_container = document.querySelector("#order_details > div")
+	if (!g_Helper.isValidElement(order_container)) return // TODO: Error
+
+	const order_table = order_container.querySelector("table")
 	if (!g_Helper.isValidElement(order_table)) return // TODO: Error
 
 	g_Builder.start(order_table)
@@ -30,6 +33,8 @@ function displayOrder()
 			{
 				g_Builder.startElement("td")
 				{
+					// TODO: Image?
+
 					g_Builder.startElement("div")
 					{
 						g_Builder.addClass("flexbox")
@@ -59,6 +64,22 @@ function displayOrder()
 			}
 			g_Builder.endElement()
 		}
+	}
+	g_Builder.end()
+
+	g_Builder.start(order_container)
+	{
+		g_Builder.startElement("input")
+		{
+			g_Builder.addClass("float_right")
+
+			g_Builder.setAttribute("type", "button")
+
+			g_Builder.setProperty("value", "Print")
+
+			// TODO: Print functionality
+		}
+		g_Builder.endElement()
 	}
 	g_Builder.end()
 }
