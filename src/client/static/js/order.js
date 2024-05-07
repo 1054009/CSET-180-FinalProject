@@ -70,15 +70,27 @@ function displayOrder()
 
 	g_Builder.start(order_container)
 	{
-		g_Builder.startElement("input")
+		g_Builder.startElement("div")
 		{
-			g_Builder.addClass("float_right")
+			g_Builder.addClass("flexbox")
+			g_Builder.addClass("flex_hspace")
+			g_Builder.addClass("flex_vcenter")
 
-			g_Builder.setAttribute("type", "button")
+			g_Builder.startElement("input")
+			{
+				g_Builder.setAttribute("type", "button")
 
-			g_Builder.setProperty("value", "Print")
+				g_Builder.setProperty("value", "Print")
 
-			// TODO: Print functionality
+				// TODO: Print functionality
+			}
+			g_Builder.endElement()
+
+			g_Builder.startElement("h3")
+			{
+				g_Builder.setProperty("innerHTML", g_CurrencyFormatter.format(g_OrderData.price))
+			}
+			g_Builder.endElement()
 		}
 		g_Builder.endElement()
 	}
