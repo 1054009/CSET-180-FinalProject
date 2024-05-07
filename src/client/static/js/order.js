@@ -8,6 +8,7 @@ const g_Builder = new DOMBuilder()
 
 var g_OrderData = {}
 var g_ItemList = []
+var g_ItemPrices = {}
 
 const g_CurrencyFormatter = Intl.NumberFormat("en-US", {
 	"style": "currency",
@@ -58,7 +59,7 @@ function displayOrder()
 
 				g_Builder.startElement("td")
 				{
-					g_Builder.setProperty("innerHTML", g_CurrencyFormatter.format(productData.price))
+					g_Builder.setProperty("innerHTML", g_CurrencyFormatter.format(g_ItemPrices[productData.id]))
 				}
 				g_Builder.endElement()
 			}
@@ -88,6 +89,7 @@ g_Helper.hookEvent(window, "load", false, () =>
 {
 	g_OrderData = fixJSONList(ORDER_DATA)
 	g_ItemList = fixJSONList(ORDER_ITEMS)
+	g_ItemPrices = JSON.parse(ITEM_PRICES)
 
 	displayOrder()
 })
