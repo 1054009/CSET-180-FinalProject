@@ -13,6 +13,7 @@ function updateCartList()
 	const cart_grid = document.querySelector("#cart_grid")
 	if (!g_Helper.isValidElement(cart_grid)) return // TODO: Error
 
+	// TODO: Show message when cart is empty
 	g_Builder.start(cart_grid)
 	{
 		for (const item of g_ItemList)
