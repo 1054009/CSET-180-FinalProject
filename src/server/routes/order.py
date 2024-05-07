@@ -31,6 +31,7 @@ def order(order_id = 0):
 	return render_template(
 		"order.html",
 
+		order_number = order_id,
 		order_data = to_json(order),
 		order_items = to_json(order.cart.items)
 	)
