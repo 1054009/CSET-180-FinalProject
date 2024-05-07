@@ -21,13 +21,13 @@ def get_price(id):
 
 	return float(product.price) # Decimals suck
 
-def get_discounted_price(id):
+def get_discounted_price(id, timestamp = None):
 	product = get_product(id)
 
 	if product is None:
 		return 0
 
-	current_time = get_current_time()
+	current_time = timestamp or get_current_time()
 
 	total_discount = 0
 	for discount in product.discounts:
