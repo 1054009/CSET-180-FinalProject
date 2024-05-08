@@ -4,3 +4,8 @@
 
 	background-color: var(--palette4);
 }
+
+#body_block > div > div
+{
+	background-color: var(--palette4);
+}
