@@ -1,7 +1,7 @@
 from app import app
 from flask import redirect, request, session
 from scripts.password_util import sha_string
-from scripts.user_util import create_user, get_user_by_username, get_user_by_email
+from scripts.user_util import create_user, get_user_by_username, get_user_by_email, register_customer
 from template_renderer import render_template
 
 @app.route("/signup/")
@@ -41,12 +41,14 @@ def signup_post():
 			tooltip_direction = 2
 		)
 
-	create_user(
+	new_user = create_user(
 		username,
 		first_name,
 		last_name,
 		email,
 		sha_string(password)
 	)
+
+	register_customer(new_user)
 
 	return redirect("/login/")

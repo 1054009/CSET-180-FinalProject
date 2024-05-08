@@ -6,7 +6,8 @@ def render_template(template_name, **data):
 
 		session = {
 			"user_id": flask.session.get("user_id"),
-			"email_address": flask.session.get("email_address")
+			"email_address": flask.session.get("email_address"),
+			"user_type": flask.session.get("user_type")
 		},
 
 		**data
