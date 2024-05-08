@@ -38,6 +38,9 @@ def login_post():
 
 	session["user_id"] = user.id
 	session["email_address"] = user.email_address
-	session["user_type"] = "CUSTOMER" if user.as_customer() is not None else "VENDOR" if user.as_vendor() is not None else "Admin" if user.as_admin() is not None else "UNKNOWN"
+	session["user_type"] = "CUSTOMER" if user.as_customer() is not None			\
+							else "VENDOR" if user.as_vendor() is not None		\
+							else "Admin" if user.as_admin() is not None			\
+							else "UNKNOWN"
 
 	return redirect("/products/")
