@@ -1,0 +1,6 @@
+#body_block > div
+{
+	width: 100%;
+
+	background-color: var(--palette4);
+}

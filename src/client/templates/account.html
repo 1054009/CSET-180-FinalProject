@@ -5,9 +5,25 @@
 {% endblock %}
 
 {% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename = 'css/account.css') }}">
 
+<script type="module" src="{{ url_for('static', filename = 'js/account.js') }}"></script>
+{% endblock %}
+
+{% block body_classes %}
+flexbox flex_column flex_vcenter flex_gap_big
 {% endblock %}
 
 {% block body %}
+<div id="account_info" class="upper_glow pop">
+	<div>
+		<p>hey</p>
+	</div>
+</div>
 
+<div id="controls" class="upper_glow pop">
+	<div>
+
+	</div>
+</div>
 {% endblock %}
