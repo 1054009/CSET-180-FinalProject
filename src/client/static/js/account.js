@@ -6,5 +6,24 @@ const g_Builder = new DOMBuilder()
 
 g_Helper.hookEvent(window, "load", false, () =>
 {
-	console.log(document.body.g_SessionData)
+	const control_div = document.querySelector("#controls > div")
+	if (!g_Helper.isValidElement(control_div)) return // TODO: Error
+
+	switch (document.body.g_SessionData.user_type)
+	{
+		case "CUSTOMER":
+		{
+			break
+		}
+
+		case "VENDOR":
+		{
+			break
+		}
+
+		case "ADMIN":
+		{
+			break
+		}
+	}
 })
