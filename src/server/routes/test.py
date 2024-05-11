@@ -41,8 +41,8 @@ def test():
 			username = "mrdude",
 			first_name = "Brandon",
 			last_name = "Smith",
-			email_address = "afagafsf@gmail.com",
-			password = "hisafe".encode("utf-8")
+			email_address = "v@v.v",
+			password = sha_string("v")
 		)
 
 		database_session.add_all([ vendor_user ])
