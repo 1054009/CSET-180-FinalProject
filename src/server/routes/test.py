@@ -22,8 +22,8 @@ def test():
 			username = "tester213",
 			first_name = "James",
 			last_name = "Douglas",
-			email_address = "a@a.a",
-			hashed_password = sha_string("a")
+			email_address = "c@c.c",
+			hashed_password = sha_string("c")
 		)
 
 		# print(to_json(test_user))
