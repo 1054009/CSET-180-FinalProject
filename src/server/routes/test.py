@@ -5,7 +5,7 @@ from flask import redirect
 from models import User, Customer, Vendor, Admin, Product, ProductImage, ProductDiscount, AvailableWarranty, ActiveWarranty
 from scripts.object_util import to_json, objects_as_json
 from scripts.password_util import sha_string
-from scripts.user_util import create_user, register_customer, get_user_by_username
+from scripts.user_util import create_user, register_customer, get_user_by_username, register_vendor, register_admin
 
 @app.route("/test/")
 def test():
@@ -48,12 +48,17 @@ def test():
 		database_session.add_all([ vendor_user ])
 		database_session.flush()
 
-		vendor_vendor = Vendor(
-			user_id = vendor_user.id
+		vendor_vendor = register_vendor(vendor_user)
+
+		admin = create_user(
+			"admin",
+			"admin",
+			"account",
+			"a@a.a",
+			sha_string("a")
 		)
 
-		database_session.add(vendor_vendor)
-		database_session.flush()
+		register_admin(admin)
 
 		spoon = Product(
 			name = "Big Spoon",
