@@ -1,3 +1,4 @@
+from pprint import pformat
 from app import app
 from database_session import database_session
 from datetime import datetime
@@ -56,6 +57,9 @@ def test():
 		)
 
 		register_admin(admin)
+
+		print(vendor_user)
+		print(admin)
 
 		spoon = Product(
 			name = "Big Spoon",
@@ -128,7 +132,8 @@ def test():
 		# print(spoon.price)
 		# print(objects_as_json(Product))
 		# print(objects_as_json(ProductImage))
-	except:
+	except Exception as erpgro:
+		print(erpgro)
 		database_session.rollback()
 		database_session.commit()
 
