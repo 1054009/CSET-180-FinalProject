@@ -37,16 +37,13 @@ def test():
 
 		print(test_customer.id)
 
-		vendor_user = User(
-			username = "mrdude",
-			first_name = "Brandon",
-			last_name = "Smith",
-			email_address = "v@v.v",
-			password = sha_string("v")
+		vendor_user = create_user(
+			"mrdude",
+			"Brandon",
+			"Smith",
+			"v@v.v",
+			sha_string("v")
 		)
-
-		database_session.add_all([ vendor_user ])
-		database_session.flush()
 
 		vendor_vendor = register_vendor(vendor_user)
 
