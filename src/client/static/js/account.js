@@ -9,21 +9,51 @@ g_Helper.hookEvent(window, "load", false, () =>
 	const control_div = document.querySelector("#controls > div")
 	if (!g_Helper.isValidElement(control_div)) return // TODO: Error
 
-	switch (document.body.g_SessionData.user_type)
+	console.log(document.body.g_SessionData)
+
+	g_Builder.start(control_div)
 	{
-		case "CUSTOMER":
+		switch (document.body.g_SessionData.user_type)
 		{
-			break
-		}
+			case "CUSTOMER":
+			{
+				break
+			}
 
-		case "VENDOR":
-		{
-			break
-		}
+			case "VENDOR":
+			{
+				g_Builder.startElement("input")
+				{
+					g_Builder.setAttribute("type", "button")
 
-		case "ADMIN":
-		{
-			break
+					g_Builder.setProperty("value", "Add Product")
+				}
+				g_Builder.endElement()
+
+				g_Builder.startElement("input")
+				{
+					g_Builder.setAttribute("type", "button")
+
+					g_Builder.setProperty("value", "Delete Product")
+				}
+				g_Builder.endElement()
+
+				g_Builder.startElement("input")
+				{
+					g_Builder.setAttribute("type", "button")
+
+					g_Builder.setProperty("value", "Edit Product")
+				}
+				g_Builder.endElement()
+
+				break
+			}
+
+			case "ADMIN":
+			{
+				break
+			}
 		}
 	}
+	g_Builder.end()
 })
