@@ -16,6 +16,7 @@
 
 {% block body %}
 <script>
+	EDIT = {{ edit and "true" or "false" }}
 	PRODUCT_LIST = {{ product_list | tojson }}
 </script>
 

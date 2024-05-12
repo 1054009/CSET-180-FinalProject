@@ -16,6 +16,18 @@ def products_get():
 		product_list = product_list
 	)
 
+@app.route("/products/edit")
+def products_edit_get():
+	# TODO: Validate they have permission
+	product_list = objects_as_json(Product)
+
+	return render_template(
+		"products.html",
+
+		edit = True,
+		product_list = product_list
+	)
+
 @app.route("/products/add_to_cart/", methods = [ "POST" ])
 def products_post():
 	user = validate_session(session)
