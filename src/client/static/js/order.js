@@ -86,9 +86,24 @@ function displayOrder()
 			}
 			g_Builder.endElement()
 
-			g_Builder.startElement("h3")
+			g_Builder.startElement("div")
 			{
-				g_Builder.setProperty("innerHTML", g_CurrencyFormatter.format(g_OrderData.price))
+				g_Builder.addClass("flexbox")
+				g_Builder.addClass("flex_column")
+
+				g_Builder.startElement("h3")
+				{
+					g_Builder.addClass("float_right")
+
+					g_Builder.setProperty("innerHTML", g_CurrencyFormatter.format(g_OrderData.price))
+				}
+				g_Builder.endElement()
+
+				g_Builder.startElement("p")
+				{
+					g_Builder.setProperty("innerHTML", `Order Status: ${g_OrderData.status}`)
+				}
+				g_Builder.endElement()
 			}
 			g_Builder.endElement()
 		}
