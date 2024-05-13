@@ -1,8 +1,11 @@
 from app import app
+from database_session import database_session
+from decimal import Decimal
 from flask import request, redirect, session
 from models import Product, ProductImage, ProductDiscount
 from scripts.cart_util import add_to_cart
 from scripts.object_util import objects_as_json
+from scripts.product_util import get_product
 from scripts.session_util import validate_session
 from template_renderer import render_template
 
@@ -30,7 +33,20 @@ def products_edit_get():
 
 @app.route("/products/update/", methods = [ "POST" ])
 def products_edit_post():
-	print(request.form)
+	product_id = request.form.get("product_id")
+	if product_id is None:
+		return redirect("/products/edit/") # TODO: Error
+
+	product = get_product(product_id)
+	if product is None:
+		return redirect("/products/edit/") # TODO: Error
+
+	# TODO: Make this more stable
+	product.name = request.form.get("product_name", product.name)
+	product.price = Decimal(request.form.get("product_price", product.price))
+	product.description = request.form.get("product_description", product.description)
+
+	database_session.commit()
 
 	return redirect("/products/edit")
 
