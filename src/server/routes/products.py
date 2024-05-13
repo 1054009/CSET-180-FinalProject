@@ -16,7 +16,7 @@ def products_get():
 		product_list = product_list
 	)
 
-@app.route("/products/edit")
+@app.route("/products/edit/")
 def products_edit_get():
 	# TODO: Validate they have permission
 	product_list = objects_as_json(Product)
