@@ -28,6 +28,12 @@ def products_edit_get():
 		product_list = product_list
 	)
 
+@app.route("/products/update/", methods = [ "POST" ])
+def products_edit_post():
+	print(request.form)
+
+	return redirect("/products/edit")
+
 @app.route("/products/add_to_cart/", methods = [ "POST" ])
 def products_post():
 	user = validate_session(session)
