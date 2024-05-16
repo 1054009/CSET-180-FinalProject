@@ -22,13 +22,19 @@ g_Helper.hookEvent(window, "load", false, () =>
 
 			case "VENDOR":
 			{
-				g_Builder.startElement("input")
+				g_Builder.startElement("a")
 				{
-					g_Builder.addClass("flex_fill")
+					g_Builder.setAttribute("href", "/products/edit/")
 
-					g_Builder.setAttribute("type", "button")
+					g_Builder.startElement("input")
+					{
+						g_Builder.addClass("flex_fill")
 
-					g_Builder.setProperty("value", "Edit Products")
+						g_Builder.setAttribute("type", "button")
+
+						g_Builder.setProperty("value", "Edit Products")
+					}
+					g_Builder.endElement()
 				}
 				g_Builder.endElement()
 
@@ -37,13 +43,19 @@ g_Helper.hookEvent(window, "load", false, () =>
 
 			case "ADMIN":
 			{
-				g_Builder.startElement("input")
+				g_Builder.startElement("a")
 				{
-					g_Builder.addClass("flex_fill")
+					g_Builder.setAttribute("href", "/products/edit/")
 
-					g_Builder.setAttribute("type", "button")
+					g_Builder.startElement("input")
+					{
+						g_Builder.addClass("flex_fill")
 
-					g_Builder.setProperty("value", "Edit Products")
+						g_Builder.setAttribute("type", "button")
+
+						g_Builder.setProperty("value", "Edit Products")
+					}
+					g_Builder.endElement()
 				}
 				g_Builder.endElement()
 
