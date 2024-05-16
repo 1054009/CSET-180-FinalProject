@@ -68,6 +68,8 @@ def products_create_post():
 		price = Decimal(request.form.get("product_price", 1.00))
 	)
 
+	# TODO: Product images
+
 	database_session.add(new_product)
 	database_session.commit()
 
