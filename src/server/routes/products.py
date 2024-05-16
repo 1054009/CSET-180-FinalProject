@@ -50,6 +50,29 @@ def products_edit_post():
 
 	return redirect("/products/edit")
 
+@app.route("/products/create/", methods = [ "POST" ])
+def products_create_post():
+	user = validate_session(session)
+	if not user:
+		return redirect("/products/") # TODO: Error
+
+	vendor = user.as_vendor()
+	if not vendor:
+		return redirect("/products/") # TODO: Error
+
+	new_product = Product(
+		name = request.form.get("product_name", "New Item"),
+		description = request.form.get("product_description", "Very cool"),
+		vendor_id = vendor.id,
+		inventory = 1,
+		price = Decimal(request.form.get("product_price", 1.00))
+	)
+
+	database_session.add(new_product)
+	database_session.commit()
+
+	return redirect("/products/edit/")
+
 @app.route("/products/add_to_cart/", methods = [ "POST" ])
 def products_post():
 	user = validate_session(session)

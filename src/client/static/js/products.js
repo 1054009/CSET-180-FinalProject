@@ -25,6 +25,92 @@ function updateProductDisplay(edit)
 	{
 		g_Builder.setProperty("innerHTML", "")
 
+		if (edit) // "Add new product" card
+		{
+			g_Builder.startElement("div")
+			{
+				g_Builder.addClass("upper_glow")
+
+				g_Builder.startElement("div")
+				{
+					g_Builder.addClass("product_card")
+					g_Builder.addClass("flexbox")
+					g_Builder.addClass("flex_column")
+					g_Builder.addClass("flex_gap")
+
+					g_Builder.startElement("div")
+					{
+						g_Builder.addClass("flexbox")
+						g_Builder.addClass("flex_hcenter")
+						g_Builder.addClass("flex_vcenter")
+
+						g_Builder.startElement("div")
+						{
+							g_Builder.addClass("product_image")
+							g_Builder.addClass("flexbox")
+							g_Builder.addClass("flex_hcenter")
+							g_Builder.addClass("flex_vcenter")
+
+							// TODO: Image add button
+						}
+						g_Builder.endElement()
+					}
+					g_Builder.endElement()
+
+					g_Builder.startElement("form")
+					{
+						g_Builder.setAttribute("action", "/products/create/")
+						g_Builder.setAttribute("method", "POST")
+
+						g_Builder.addClass("flexbox")
+						g_Builder.addClass("flex_column")
+						g_Builder.addClass("flex_vcenter")
+						g_Builder.addClass("flex_gap")
+
+						// TODO: Make this look good
+						g_Builder.startElement("input")
+						{
+							g_Builder.setAttribute("type", "text")
+							g_Builder.setAttribute("name", "product_name")
+							g_Builder.setAttribute("placeholder", "New Product Name")
+							g_Builder.setAttribute("required", "required")
+						}
+						g_Builder.endElement()
+
+						g_Builder.startElement("input")
+						{
+							g_Builder.setAttribute("type", "number")
+							g_Builder.setAttribute("name", "product_price")
+							g_Builder.setAttribute("placeholder", "New Product Price")
+							g_Builder.setAttribute("step", "0.25")
+							g_Builder.setAttribute("required", "required")
+						}
+						g_Builder.endElement()
+
+						g_Builder.startElement("input")
+						{
+							g_Builder.setAttribute("type", "text")
+							g_Builder.setAttribute("name", "product_description")
+							g_Builder.setAttribute("placeholder", "New Product Description")
+							g_Builder.setAttribute("required", "required")
+						}
+						g_Builder.endElement()
+						g_Builder.startElement("input")
+						{
+							g_Builder.setAttribute("type", "submit")
+
+							g_Builder.setProperty("value", "Create New")
+						}
+						g_Builder.endElement()
+					}
+					g_Builder.endElement()
+				}
+				g_Builder.endElement()
+			}
+			g_Builder.endElement()
+		}
+
+		// The actual products
 		for (const productData of g_ProductList)
 		{
 			const masterID = g_Helper.getNumber(productData.master_product_id)
@@ -151,6 +237,7 @@ function updateProductDisplay(edit)
 								g_Builder.setAttribute("type", "text")
 								g_Builder.setAttribute("name", "product_name")
 								g_Builder.setAttribute("placeholder", "Product Name")
+								g_Builder.setAttribute("required", "required")
 
 								g_Builder.setProperty("value", productData.name)
 							}
@@ -162,6 +249,7 @@ function updateProductDisplay(edit)
 								g_Builder.setAttribute("name", "product_price")
 								g_Builder.setAttribute("placeholder", "Product Price")
 								g_Builder.setAttribute("step", "0.25")
+								g_Builder.setAttribute("required", "required")
 
 								g_Builder.setProperty("value", productData.price)
 							}
@@ -172,6 +260,7 @@ function updateProductDisplay(edit)
 								g_Builder.setAttribute("type", "text")
 								g_Builder.setAttribute("name", "product_description")
 								g_Builder.setAttribute("placeholder", "Product Description")
+								g_Builder.setAttribute("required", "required")
 
 								g_Builder.setProperty("value", productData.description)
 							}
